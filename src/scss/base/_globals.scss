@@ -1,0 +1,19 @@
+@import url(https://api.fontshare.com/v2/css?f[]=red-hat-display@401,800,501,601,900,901,301,300,801,700,400,500,701,600&display=swap);
+
+$brand: #f251e2;
+$background: #0e0e0e;
+
+:root {
+    --brand: #{$brand};
+    --background: #{$background};
+}
+
+body {
+    background-color: var(--background);
+    color: #fcfffe;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+section {
+    height: 100vh;
+}

@@ -1,0 +1,27 @@
+.nav {
+    --line-with: 16px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 10%;
+    width: 100vw;
+
+    .navButton {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column-reverse;
+        gap: 0.7rem;
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin-right: 1rem;
+        @for $i from 1 through 3 {
+            .line#{$i} {
+                background-color: white;
+                height: 1px;
+                width: calc(var(--line-with) * $i * 0.5);
+            }
+        }
+    }
+}
