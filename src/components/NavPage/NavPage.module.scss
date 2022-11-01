@@ -4,25 +4,30 @@
     &.open {
         transform: translateX(0%);
     }
+    backdrop-filter: blur(20px);
+    z-index: 50;
     .navPage {
         position: relative;
         height: 100vh;
         width: 100vw;
-        backdrop-filter: blur(20px);
         background: linear-gradient(90deg, rgba(255, 113, 198, 0.153), 5%, rgba(15, 15, 15, 0) 100%);
         padding-left: 10%;
 
         .navHeading {
             font-size: 6rem;
+            position: absolute;
+            top: 4vmax;
         }
 
         .navButtons {
             display: flex;
             flex-direction: column;
-            gap: 4rem;
+            gap: 2rem;
             padding: 0;
             margin: 0;
-            margin-top: 10rem;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
             .navBtn {
                 list-style: none;
                 .text {

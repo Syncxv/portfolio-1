@@ -1,0 +1,20 @@
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .MyNAME {
+        font-size: 26vmin;
+
+        .arul {
+            display: inline-block;
+            transform: translateX(-15%);
+        }
+        .dev {
+            display: inline-block;
+
+            transform: translateX(15%);
+        }
+    }
+}
