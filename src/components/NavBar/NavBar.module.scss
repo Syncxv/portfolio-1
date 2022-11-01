@@ -6,6 +6,7 @@
     justify-content: end;
     height: 10%;
     width: 100vw;
+    z-index: 100;
 
     .navButton {
         display: flex;
@@ -16,6 +17,7 @@
         border: none;
         padding: 0;
         margin-right: 1rem;
+        cursor: pointer;
         @for $i from 1 through 3 {
             .line#{$i} {
                 background-color: white;

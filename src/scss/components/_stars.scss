@@ -1,0 +1,92 @@
+//https://codepen.io/sarazond/pen/LYGbwj
+
+@function multiple-box-shadow($n) {
+    $value: '#{random(2000)}px #{random(2000)}px #FFF';
+    @for $i from 2 through $n {
+        $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+    }
+
+    @return unquote($value);
+}
+
+$shadows-small: multiple-box-shadow(4);
+$shadows-medium: multiple-box-shadow(15);
+$shadows-big: multiple-box-shadow(25);
+
+.stars-container {
+	z-index: 9999;
+    .stars1 {
+        will-change: transform;
+        opacity: 0.5;
+        width: 2px;
+        height: 2px;
+        background: transparent;
+        box-shadow: $shadows-small;
+        animation: animStar 50s linear infinite;
+        // border-radius: 50%;
+        &:after {
+            content: ' ';
+            position: absolute;
+            top: 2000px;
+            width: 1px;
+            height: 1px;
+            background: transparent;
+            box-shadow: $shadows-small;
+            // border-radius: 50%;
+        }
+    }
+
+    .stars2 {
+        will-change: transform;
+        opacity: 0.5;
+        width: 3px;
+        height: 3px;
+        background: transparent;
+        box-shadow: $shadows-medium;
+        animation: animStar 50s linear infinite;
+        // border-radius: 50%;
+
+        &:after {
+            content: ' ';
+            position: absolute;
+            top: 2000px;
+
+            width: 3px;
+            height: 3px;
+            background: transparent;
+            box-shadow: $shadows-medium;
+            // border-radius: 50%;
+        }
+    }
+
+    .stars2 {
+        will-change: transform;
+        opacity: 0.5;
+        width: 5px;
+        height: 5px;
+        background: transparent;
+        box-shadow: $shadows-big;
+        animation: animStar 50s linear infinite;
+        // border-radius: 50%;
+        &:after {
+            content: ' ';
+            position: absolute;
+            top: 2000px;
+
+            width: 5px;
+            height: 5px;
+            background: transparent;
+            box-shadow: $shadows-big;
+            // border-radius: 50%;
+        }
+    }
+}
+
+@keyframes animStar {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-2000px);
+    }
+}
