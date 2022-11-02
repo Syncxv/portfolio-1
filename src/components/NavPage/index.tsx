@@ -1,3 +1,4 @@
+import { stagger } from 'motion';
 import { createAnimation } from 'motion-signals';
 import { Accessor, Component, createEffect } from 'solid-js';
 import { delay } from '../NavBar';
@@ -12,9 +13,17 @@ const NavPage: Component<{ isOpen: Accessor<boolean>; getFinished: () => boolean
             easing: [0.22, 0.03, 0.26, 1],
         }
     );
-
+    const linksAnimation = createAnimation(
+        `.${Styles.navBtn}`,
+        { y: [-100, 0], opacity: 1 },
+        {
+            delay: stagger((delay * 3) / 3),
+            duration: 1,
+            easing: [0.22, 0.03, 0.26, 1],
+        }
+    );
     createEffect(() => {
-        isOpen() && getFinished() && headingAnimation.play();
+        isOpen() && getFinished() && headingAnimation.play(), linksAnimation.play();
         !isOpen() && headingAnimation.getAnimateInstance()?.reverse();
     });
 

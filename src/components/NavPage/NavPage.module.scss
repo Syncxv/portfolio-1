@@ -26,8 +26,8 @@ $transition: opacity 100ms ease, transform 100ms ease 100ms, backdrop-filter 500
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            opacity: 0;
             .navBtn {
+                opacity: 0;
                 list-style: none;
                 .text {
                     text-decoration: none;

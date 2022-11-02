@@ -8,9 +8,8 @@ export let delay = 0.4;
 
 function NavBar() {
     const [isOpen, setOpen] = createSignal(false);
-    console.log(stagger(0.4, { from: 3 }));
     const {
-        play: open,
+        play: openAnimation,
         getIsFinished,
         getAnimateInstance,
     } = createAnimation(
@@ -25,7 +24,7 @@ function NavBar() {
         }
     );
     const {
-        play: close,
+        play: closeAnimation,
         getIsFinished: finished2,
         getAnimateInstance: instance2,
     } = createAnimation(
@@ -40,17 +39,15 @@ function NavBar() {
             easing: [0.22, 0.03, 0.26, 1],
         }
     );
+
+    const close = () => {
+        isOpen() ? closeAnimation() : openAnimation();
+        setOpen((prev) => !prev);
+    };
     return (
         <>
             <nav class={Styles.nav}>
-                <button
-                    disabled={!getIsFinished() || !finished2()}
-                    class={Styles.navButton}
-                    onClick={() => {
-                        isOpen() ? close() : open();
-                        setOpen((prev) => !prev);
-                    }}
-                >
+                <button disabled={!getIsFinished() || !finished2()} class={Styles.navButton} onClick={() => close()}>
                     <div class={Styles.line1}></div>
                     <div class={Styles.line2}></div>
                     <div class={Styles.line3}></div>
@@ -60,7 +57,7 @@ function NavBar() {
                 <div class={Styles.bar}></div>
                 <div class={Styles.bar}></div>
                 <div class={Styles.bar}></div>
-                {<NavPage isOpen={isOpen} close={close} getFinished={() => !getIsFinished()} />}
+                {<NavPage isOpen={isOpen} close={closeAnimation} getFinished={() => !getIsFinished()} />}
             </div>
         </>
     );
