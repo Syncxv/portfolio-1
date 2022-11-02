@@ -15,20 +15,35 @@ function NavBar() {
         {
             delay: stagger(0.4, { from: 3 }),
 
-            endDelay: 0.4,
+            // endDelay: 0.4,
             duration: 1,
             easing: [0.22, 0.03, 0.26, 1],
         }
     );
+    const {
+        play: play2,
+        getIsFinished: finished2,
+        getAnimateInstance: instance2,
+    } = createAnimation(
+        `.${Styles.bar}`,
+        { y: [0, '-100vh'], opacity: 1 },
 
+        {
+            delay: stagger(0.4, { from: 3 }),
+
+            // endDelay: 0.4,
+            duration: 1,
+            easing: [0.22, 0.03, 0.26, 1],
+        }
+    );
     return (
         <>
             <nav class={Styles.nav}>
                 <button
-                    disabled={!getIsFinished()}
+                    disabled={!getIsFinished() || !finished2()}
                     class={Styles.navButton}
                     onClick={() => {
-                        isOpen() ? getAnimateInstance()?.reverse() : play();
+                        isOpen() ? play2() : play();
                         setOpen((prev) => !prev);
                     }}
                 >
