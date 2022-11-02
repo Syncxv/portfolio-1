@@ -27,3 +27,15 @@
         }
     }
 }
+
+.Bars {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    .bar {
+        transform: translateY(-100vh);
+        width: calc(100vw / 3);
+        height: 100vh;
+        background-color: rgb(39, 39, 39);
+    }
+}
