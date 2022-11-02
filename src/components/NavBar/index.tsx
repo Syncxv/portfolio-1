@@ -4,24 +4,28 @@ import { createSignal, onMount } from 'solid-js';
 import NavPage from '../NavPage';
 import Styles from './NavBar.module.scss';
 
-import {} from '@motionone/solid';
+export let delay = 0.4;
 
 function NavBar() {
     const [isOpen, setOpen] = createSignal(false);
-    const { play, getIsFinished, getAnimateInstance } = createAnimation(
+    console.log(stagger(0.4, { from: 3 }));
+    const {
+        play: open,
+        getIsFinished,
+        getAnimateInstance,
+    } = createAnimation(
         `.${Styles.bar}`,
         { y: ['-100vh', 0], opacity: 1 },
 
         {
-            delay: stagger(0.4, { from: 3 }),
+            delay: stagger(delay, { from: 'last' }),
 
-            // endDelay: 0.4,
             duration: 1,
             easing: [0.22, 0.03, 0.26, 1],
         }
     );
     const {
-        play: play2,
+        play: close,
         getIsFinished: finished2,
         getAnimateInstance: instance2,
     } = createAnimation(
@@ -29,7 +33,7 @@ function NavBar() {
         { y: [0, '-100vh'], opacity: 1 },
 
         {
-            delay: stagger(0.4, { from: 3 }),
+            delay: stagger(delay, { start: 0.5, from: 3 }),
 
             // endDelay: 0.4,
             duration: 1,
@@ -43,7 +47,7 @@ function NavBar() {
                     disabled={!getIsFinished() || !finished2()}
                     class={Styles.navButton}
                     onClick={() => {
-                        isOpen() ? play2() : play();
+                        isOpen() ? close() : open();
                         setOpen((prev) => !prev);
                     }}
                 >
@@ -56,7 +60,7 @@ function NavBar() {
                 <div class={Styles.bar}></div>
                 <div class={Styles.bar}></div>
                 <div class={Styles.bar}></div>
-                {getIsFinished() && <NavPage isOpen={isOpen} />}
+                {<NavPage isOpen={isOpen} close={close} getFinished={() => !getIsFinished()} />}
             </div>
         </>
     );
