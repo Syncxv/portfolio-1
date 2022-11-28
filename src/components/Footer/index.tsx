@@ -8,7 +8,7 @@ const Footer = (props: Props) => {
             <div class="flex flex-col items-start justify-center col-[1 / 3]">
                 <h1 class="text-5xl font-bold">So How was your day</h1>
                 <a href="/" class="font-semibold text-3xl mt-5">
-                    contact me pls i have no friends
+                    contact me pls
                 </a>
             </div>
             <div class="contant-grid grid grid-cols-2 gap-72 items-center">
