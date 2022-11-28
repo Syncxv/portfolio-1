@@ -21,7 +21,7 @@ const ParallaxSection: ParentComponent<Props> = ({ zIndex, children, className =
         });
     });
     return (
-        <section ref={(r) => (target = r)} style={{ 'z-index': zIndex }} class="h-full min-h-[700px]">
+        <section ref={(r) => (target = r)} style={{ 'z-index': zIndex }} class="h-auto min-h-[700px]">
             <div
                 ref={(r) => (content = r)}
                 class={`content relative flex flex-col items-center justify-center h-screen overflow-hidden ${className}`}

@@ -6,6 +6,7 @@ import Cursor from './components/cursor';
 import Hero from './components/Hero';
 import ParallaxSection from './components/ParallaxSection';
 import Footer from './components/Footer';
+import WorkSection from './components/Work';
 
 export let scroller: Scrollbar;
 export let cursor: Cursor;
@@ -53,7 +54,10 @@ const App: Component = () => {
             <div ref={(r) => (scrollerRef = r)} class="scroller will-change-transform">
                 <main class="mx-auto max-w-screen-2xl">
                     <Hero />
-                    <ParallaxSection zIndex={9}>
+                    <ParallaxSection zIndex={9} className="h-auto pb-[20rem] bg-primary-black">
+                        <WorkSection />
+                    </ParallaxSection>
+                    <ParallaxSection zIndex={8} className="bg-white text-black">
                         <Footer />
                     </ParallaxSection>
                 </main>
