@@ -9,11 +9,23 @@ $background: #0e0e0e;
 }
 
 body {
-    background-color: var(--background);
+    // background-color: var(--background);
+    background: radial-gradient(120% 120% at 50% 9%, rgb(255 255 255 / 2%) 0%, rgba(242, 81, 226, 0.024) 100%), var(--background);
     color: #fcfffe;
     font-family: 'Red Hat Display', sans-serif;
+    overflow: hidden;
 }
 
 section {
     height: 100vh;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+    position: relative;
+}
+
+.scroller {
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
 }
