@@ -10,7 +10,7 @@ $background: #0e0e0e;
 
 body {
     // background-color: var(--background);
-    background: radial-gradient(120% 120% at 50% 9%, rgb(255 255 255 / 2%) 0%, rgba(242, 81, 226, 0.024) 100%), var(--background);
+    background: var(--background);
     color: #fcfffe;
     font-family: 'Red Hat Display', sans-serif;
     overflow: hidden;

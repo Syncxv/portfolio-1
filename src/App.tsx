@@ -1,35 +1,56 @@
 import { Component, onMount } from 'solid-js';
 import { initGsap } from './utils/initGsap';
-import ParallaxSection from './components/ParallaxSection';
-import Footer from './components/Footer';
-import NavBar from './components/Nav/NavBar';
+import NavBar from './components/NavBar';
 import { Scrollbar } from 'smooth-scrollbar/scrollbar';
+import Cursor from './components/cursor';
+import Hero from './components/Hero';
 
 export let scroller: Scrollbar;
+export let cursor: Cursor;
 
 const App: Component = () => {
     let scrollerRef: HTMLDivElement;
     onMount(() => {
         scroller = initGsap(scrollerRef);
+        cursor = new Cursor({
+            container: 'body',
+            className: 'pt-cursor',
+            overwrite: true,
+            speed: 0.4,
+            skewingDelta: 0.001,
+            skewingDeltaMax: 0.15,
+            skewingIcon: 3,
+            skewingMedia: 2,
+            skewingText: 2,
+            skewing: 4,
+            innerClassName: 'pt-cursor-inner',
+            mediaClassName: 'pt-cursor-media',
+            mediaBoxClassName: 'pt-media-box',
+            mediaState: '-media',
+            hideMediaTimeout: 300,
+            textClassName: 'pt-cursor-text',
+            textState: '-text',
+            hideTimeout: 300,
+            showTimeout: 20,
+            hiddenState: '-hidden',
+            activeState: '-active',
+            iconState: '-icon',
+            iconSvgClassName: 'pt-svgsprite',
+            iconSvgNamePrefix: '-',
+            iconSvgSrc: '/assets/img/sprites/svgsprites.svg',
+            visible: true,
+            hideOnLeave: true,
+            dataAttr: 'cursor',
+            stateDetection: { '-pointer': 'a,button', '-hidden': 'iframe' },
+        });
     });
 
     return (
         <div class="wrapper">
-            <NavBar />
+            <NavBar className="mx-auto max-w-[1080px]" />
             <div ref={(r) => (scrollerRef = r)} class="scroller will-change-transform">
-                <main>
-                    <section class="flex justify-center relative bg-white text-black z-20">
-                        <h1 class="text-9xl">hey</h1>
-                    </section>
-                    <ParallaxSection zIndex={10} className="bg-black">
-                        <img src="https://cdn.cuberto.com/cb/img/ulesson/main.jpg" alt="" />
-                    </ParallaxSection>
-                    <ParallaxSection zIndex={5} className="pt-20 bg-white text-black">
-                        <h1 class="text-9xl">hey</h1>
-                    </ParallaxSection>
-                    <ParallaxSection zIndex={0}>
-                        <Footer />
-                    </ParallaxSection>
+                <main class="mx-auto max-w-[1080px]">
+                    <Hero />
                 </main>
             </div>
         </div>

@@ -9,6 +9,7 @@ specifiers:
   vite: ^3.0.9
   vite-plugin-solid: ^2.3.0
   vite-plugin-windicss: ^1.8.7
+  windicss: ^3.5.6
 
 dependencies:
   gsap: 3.11.3
@@ -21,6 +22,7 @@ devDependencies:
   vite: 3.0.9_sass@1.56.1
   vite-plugin-solid: 2.3.0_solid-js@1.5.1+vite@3.0.9
   vite-plugin-windicss: 1.8.7_vite@3.0.9
+  windicss: 3.5.6
 
 packages:
 
