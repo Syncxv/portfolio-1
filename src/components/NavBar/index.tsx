@@ -5,7 +5,7 @@ type Props = { className?: string };
 const NavBar: Component<Props> = ({ className = ' ' }) => {
     return (
         <>
-            <div class={`navbar flex justify-between px-16 py-5 absolute inset-0 h-8 top-0 bg-transparent w-screen z-50 ${className}`}>
+            <div class={`navbar flex justify-between px-16 py-5 absolute top-0 right-0 left-0 bg-transparent w-screen z-50 ${className}`}>
                 <div class="home">
                     <a href="/" class="mix-blend-difference">
                         Home
