@@ -4,6 +4,8 @@ import NavBar from './components/NavBar';
 import { Scrollbar } from 'smooth-scrollbar/scrollbar';
 import Cursor from './components/cursor';
 import Hero from './components/Hero';
+import ParallaxSection from './components/ParallaxSection';
+import Footer from './components/Footer';
 
 export let scroller: Scrollbar;
 export let cursor: Cursor;
@@ -51,6 +53,9 @@ const App: Component = () => {
             <div ref={(r) => (scrollerRef = r)} class="scroller will-change-transform">
                 <main class="mx-auto max-w-[1080px]">
                     <Hero />
+                    <ParallaxSection zIndex={9}>
+                        <Footer />
+                    </ParallaxSection>
                 </main>
             </div>
         </div>
