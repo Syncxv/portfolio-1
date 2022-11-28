@@ -68,7 +68,7 @@ const Hero: Component<Props> = (props) => {
                     </div>
                     <div class="relative overflow-hidden">
                         <h1 ref={heading2} class="text-8xl ml-16 ">
-                            UI Developer
+                            & Developer
                         </h1>
                     </div>
                 </div>

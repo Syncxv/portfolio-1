@@ -49,9 +49,9 @@ const App: Component = () => {
 
     return (
         <div class="wrapper">
-            <NavBar className="mx-auto max-w-[1080px]" />
+            <NavBar className="mx-auto max-w-screen-2xl" />
             <div ref={(r) => (scrollerRef = r)} class="scroller will-change-transform">
-                <main class="mx-auto max-w-[1080px]">
+                <main class="mx-auto max-w-screen-2xl">
                     <Hero />
                     <ParallaxSection zIndex={9}>
                         <Footer />
