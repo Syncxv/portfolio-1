@@ -54,7 +54,7 @@ const App: Component = () => {
             <div ref={(r) => (scrollerRef = r)} class="scroller will-change-transform">
                 <main class="mx-auto max-w-screen-2xl">
                     <Hero />
-                    <ParallaxSection zIndex={9} className="h-auto pb-[20rem] bg-primary-black">
+                    <ParallaxSection zIndex={9} className="h-auto pt-20 bg-zinc-900">
                         <WorkSection />
                     </ParallaxSection>
                     <ParallaxSection zIndex={8} className="bg-white text-black">
