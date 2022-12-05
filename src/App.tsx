@@ -1,6 +1,6 @@
 import { Component, onMount } from 'solid-js';
 import { initGsap } from './utils/initGsap';
-import NavBar from './components/NavBar';
+import NavBar, { navRef } from './components/NavBar';
 import { Scrollbar } from 'smooth-scrollbar/scrollbar';
 import Cursor from './components/cursor';
 import Hero from './components/Hero';
@@ -14,6 +14,7 @@ export let cursor: Cursor;
 
 const App: Component = () => {
     let scrollerRef: HTMLDivElement;
+    let inversed = false;
     onMount(() => {
         scroller = initGsap(scrollerRef);
         cursor = createCurosr();
@@ -28,7 +29,20 @@ const App: Component = () => {
                         <Hero />
                         <WorkSection />
                     </div>
-                    <ParallaxSection zIndex={8} className="bg-white text-black">
+                    <ParallaxSection
+                        onUpdate={(n) => {
+                            if (n.progress > 0.96 && !inversed) {
+                                navRef.classList.add('-inverse');
+                                inversed = true;
+                            }
+                            if (n.progress < 0.96 && inversed) {
+                                navRef.classList.remove('-inverse');
+                                inversed = false;
+                            }
+                        }}
+                        zIndex={8}
+                        className="bg-white text-black"
+                    >
                         <Footer />
                     </ParallaxSection>
                 </main>

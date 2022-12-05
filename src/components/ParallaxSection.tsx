@@ -1,13 +1,13 @@
 import { onMount, ParentComponent } from 'solid-js';
 import { tlPararallax } from '../utils/parallax';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { navRef } from './NavBar';
 type Props = {
     zIndex: number;
+    onUpdate?: (n: ScrollTrigger) => void;
     className?: string;
 };
 
-const ParallaxSection: ParentComponent<Props> = ({ zIndex, children, className = '' }) => {
+const ParallaxSection: ParentComponent<Props> = ({ zIndex, children, onUpdate = () => {}, className = '' }) => {
     let target: HTMLElement;
     let content: HTMLElement;
     let inversed = false;
@@ -20,16 +20,7 @@ const ParallaxSection: ParentComponent<Props> = ({ zIndex, children, className =
             scrub: true,
             start: 'top bottom',
             end: 'top top',
-            onUpdate: function (n) {
-                if (n.progress > 0.92 && !inversed) {
-                    navRef.classList.add('-inverse');
-                    inversed = true;
-                }
-                if (n.progress < 0.92 && inversed) {
-                    navRef.classList.remove('-inverse');
-                    inversed = false;
-                }
-            },
+            onUpdate: (n) => onUpdate(n),
         });
     });
     return (
