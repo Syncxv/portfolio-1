@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 
-interface Options {
+export interface ICursorOptions {
     className: string;
     container: string;
     overwrite: boolean;
@@ -52,7 +52,7 @@ export default class Cursor {
     media!: HTMLDivElement;
     mediaBox!: HTMLDivElement;
     visibleInt!: NodeJS.Timeout;
-    options: Options;
+    options: ICursorOptions;
     setter!: Setter;
     event!: AllEvents;
     ticker: any;
@@ -70,7 +70,7 @@ export default class Cursor {
         y: 0,
     };
     visible = true;
-    constructor(opt: Options) {
+    constructor(opt: ICursorOptions) {
         this.options = opt;
 
         this.container = document.querySelector(this.options.container)!;
@@ -119,39 +119,39 @@ export default class Cursor {
         let _this = this;
         this.event.mouseout = function (e) {
             for (
-                var elem = e.target as HTMLElement;
+                let elem = e.target as HTMLElement;
                 elem && elem !== _this.container && (!e.relatedTarget || !elem.contains(e.relatedTarget as HTMLElement));
                 elem = elem.parentNode as HTMLElement
             ) {
-                for (var detections in _this.options.stateDetection)
+                for (let detections in _this.options.stateDetection)
                     elem.matches(_this.options.stateDetection[detections]) && _this.removeState(detections);
                 if (_this.options.dataAttr) {
-                    var r = _this.getFromDataset(elem);
-                    r.state && _this.removeState(r.state),
-                        r.text && _this.removeText(),
-                        r.icon && _this.removeIcon(),
-                        r.img && _this.removeImg(),
-                        r.video && _this.removeVideo(),
-                        void 0 !== r.show && _this.hide();
+                    let r = _this.getFromDataset(elem);
+                    r.state && _this.removeState(r.state);
+                    r.text && _this.removeText();
+                    r.icon && _this.removeIcon();
+                    r.img && _this.removeImg();
+                    r.video && _this.removeVideo();
+                    void 0 !== r.show && _this.hide();
                     // void 0 !== r.stick && _this.removeStick();
                 }
             }
         };
         this.event.mouseover = function (e) {
             for (
-                var elem = e.target as HTMLElement;
+                let elem = e.target as HTMLElement;
                 elem && elem !== _this.container && (!e.relatedTarget || !elem.contains(e.relatedTarget as HTMLElement));
                 elem = elem.parentNode as HTMLElement
             ) {
-                for (var i in _this.options.stateDetection) elem.matches(_this.options.stateDetection[i]) && _this.addState(i);
+                for (let i in _this.options.stateDetection) elem.matches(_this.options.stateDetection[i]) && _this.addState(i);
                 if (_this.options.dataAttr) {
-                    var r = _this.getFromDataset(elem);
-                    r.state && _this.addState(r.state),
-                        r.text && _this.setText(r.text),
-                        r.icon && _this.setIcon(r.icon),
-                        r.img && _this.setImg(r.img),
-                        r.video && _this.setVideo(r.video),
-                        void 0 !== r.show && _this.show();
+                    let r = _this.getFromDataset(elem);
+                    r.state && _this.addState(r.state);
+                    r.text && _this.setText(r.text);
+                    r.icon && _this.setIcon(r.icon);
+                    r.img && _this.setImg(r.img);
+                    r.video && _this.setVideo(r.video);
+                    void 0 !== r.show && _this.show();
                     // void 0 !== r.stick && _this.setStick(r.stick || elem);
                 }
             }
@@ -185,21 +185,21 @@ export default class Cursor {
             }));
     }
     create() {
-        (this.el = document.createElement('div')),
-            (this.el.className = this.options.className),
-            (this.inner = document.createElement('div')),
-            (this.inner.className = this.options.innerClassName),
-            (this.text = document.createElement('div')),
-            (this.text.className = this.options.textClassName),
-            (this.media = document.createElement('div')),
-            (this.media.className = this.options.mediaClassName),
-            (this.mediaBox = document.createElement('div')),
-            (this.mediaBox.className = this.options.mediaBoxClassName),
-            this.media.appendChild(this.mediaBox),
-            this.inner.appendChild(this.media),
-            this.inner.appendChild(this.text),
-            this.el.appendChild(this.inner),
-            this.container.appendChild(this.el);
+        this.el = document.createElement('div');
+        this.el.className = this.options.className;
+        this.inner = document.createElement('div');
+        this.inner.className = this.options.innerClassName;
+        this.text = document.createElement('div');
+        this.text.className = this.options.textClassName;
+        this.media = document.createElement('div');
+        this.media.className = this.options.mediaClassName;
+        this.mediaBox = document.createElement('div');
+        this.mediaBox.className = this.options.mediaBoxClassName;
+        this.media.appendChild(this.mediaBox);
+        this.inner.appendChild(this.media);
+        this.inner.appendChild(this.text);
+        this.el.appendChild(this.inner);
+        this.container.appendChild(this.el);
     }
     createSetter() {
         this.setter = {
@@ -217,7 +217,7 @@ export default class Cursor {
     render(first: boolean) {
         if (first || (0 !== this.vel.y && 0 !== this.vel.x)) {
             if ((this.setter.wc('transform'), this.setter.x(this.pos.x), this.setter.y(this.pos.y), this.skewing)) {
-                var e = Math.sqrt(Math.pow(this.vel.x, 2) + Math.pow(this.vel.y, 2)),
+                let e = Math.sqrt(Math.pow(this.vel.x, 2) + Math.pow(this.vel.y, 2)),
                     n = Math.min(e * this.options.skewingDelta, this.options.skewingDeltaMax) * this.skewing,
                     i = (180 * Math.atan2(this.vel.y, this.vel.x)) / Math.PI;
                 this.setter.rotation(i);
@@ -231,18 +231,16 @@ export default class Cursor {
     }
 
     show() {
-        clearInterval(this.visibleInt),
-            this.el.classList.remove(this.options.hiddenState),
-            (this.visibleInt = setTimeout(() => {
-                return (this.visible = !0);
-            }, this.options.showTimeout));
+        clearInterval(this.visibleInt), this.el.classList.remove(this.options.hiddenState);
+        this.visibleInt = setTimeout(() => {
+            return (this.visible = !0);
+        }, this.options.showTimeout);
     }
     hide() {
-        clearInterval(this.visibleInt),
-            this.el.classList.add(this.options.hiddenState),
-            (this.visibleInt = setTimeout(() => {
-                return (this.visible = !1);
-            }, this.options.hideTimeout));
+        clearInterval(this.visibleInt), this.el.classList.add(this.options.hiddenState);
+        this.visibleInt = setTimeout(() => {
+            return (this.visible = !1);
+        }, this.options.hideTimeout);
     }
     toggle(t: boolean) {
         !this.visible || t ? this.show() : this.hide();
@@ -259,13 +257,13 @@ export default class Cursor {
         });
     }
     addState(t: string) {
-        var e;
+        let e;
         if (t === this.options.hiddenState) return this.hide();
         (e = this.el.classList).add.apply(e, t.split(' '));
     }
 
     removeState(t: string) {
-        var e;
+        let e;
         if (t === this.options.hiddenState) return this.show();
         (e = this.el.classList).remove.apply(e, t.split(' '));
     }
@@ -276,32 +274,18 @@ export default class Cursor {
         this.removeState(this.options.textState), this.removeSkewing();
     }
     setIcon(name: string, e?: string) {
-        void 0 === e && (e = ''),
-            // (this.text.innerHTML =
-            //     '<svg class="' +
-            //     this.options.iconSvgClassName +
-            //     ' ' +
-            //     this.options.iconSvgNamePrefix +
-            //     name +
-            //     '" style="' +
-            //     e +
-            //     '"><use xlink:href="' +
-            //     this.options.iconSvgSrc +
-            //     '#' +
-            //     name +
-            //     '"></use></svg>'),
-            (this.text.innerHTML = `<svg class="${this.options.iconSvgClassName} ${this.options.iconSvgNamePrefix} ${name}" style="${e}>
+        if (!e) e = '';
+        this.text.innerHTML = `<svg class="${this.options.iconSvgClassName} ${this.options.iconSvgNamePrefix} ${name}" style="${e}>
                 <use xlink:href="${this.options.iconSvgSrc}#${name}">
                 </use>
-            </svg>`),
-            this.addState(this.options.iconState),
-            this.setSkewing(this.options.skewingIcon);
+            </svg>`;
+        this.addState(this.options.iconState), this.setSkewing(this.options.skewingIcon);
     }
     removeIcon() {
         this.removeState(this.options.iconState), this.removeSkewing();
     }
     setMedia(src: HTMLElement) {
-        var e = this;
+        let e = this;
         clearTimeout(this.mediaInt),
             src && ((this.mediaBox.innerHTML = ''), this.mediaBox.appendChild(src)),
             (this.mediaInt = setTimeout(function () {
@@ -310,7 +294,7 @@ export default class Cursor {
             this.setSkewing(this.options.skewingMedia);
     }
     removeMedia() {
-        var _this = this;
+        let _this = this;
         clearTimeout(this.mediaInt),
             this.removeState(this.options.mediaState),
             (this.mediaInt = setTimeout(function () {
@@ -338,7 +322,7 @@ export default class Cursor {
         this.mediaVideo && this.mediaVideo.readyState > 2 && this.mediaVideo.pause(), this.removeMedia();
     }
     getFromDataset(t: HTMLElement) {
-        var e = t.dataset;
+        let e = t.dataset;
         return {
             state: e[this.options.dataAttr],
             show: e[this.options.dataAttr + 'Show'],
