@@ -23,11 +23,11 @@ const App: Component = () => {
         <div class="wrapper">
             <NavBar className="mx-auto max-w-screen-2xl" />
             <div ref={(r) => (scrollerRef = r)} class="scroller will-change-transform">
-                <main class="mx-auto max-w-screen-2xl">
-                    <Hero />
-                    <ParallaxSection zIndex={9} className="h-auto pt-20 bg-zinc-900">
+                <main class="mx-auto">
+                    <div class="relative z-10">
+                        <Hero />
                         <WorkSection />
-                    </ParallaxSection>
+                    </div>
                     <ParallaxSection zIndex={8} className="bg-white text-black">
                         <Footer />
                     </ParallaxSection>

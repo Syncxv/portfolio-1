@@ -5,13 +5,18 @@ type Props = {};
 
 const WorkSection: Component<Props> = ({}) => {
     return (
-        <div class="h-full work-section">
-            <div class="grid grid-cols-2 items-center justify-center gap-[20%]">
-                <WorkCard name="hehe" image="https://cdn.cuberto.com/cb/img/services/digital/1.jpg" />
-                <WorkCard name="hehe" image="https://cdn.cuberto.com/cb/img/services/digital/1.jpg" />
-                <WorkCard name="hehe" image="https://cdn.cuberto.com/cb/img/services/digital/1.jpg" />
+        <section class="bg-primary-black">
+            <div class="work-section">
+                <div
+                    style={{ 'grid-template-columns': 'repeat(auto-fit, minmax(20rem, 0.1fr))' }}
+                    class="grid items-center justify-center gap-[20%] max-w-screen-2xl mx-auto"
+                >
+                    <WorkCard name="hehe" image="https://cdn.cuberto.com/cb/img/services/digital/1.jpg" />
+                    <WorkCard name="hehe" image="https://cdn.cuberto.com/cb/img/services/digital/1.jpg" />
+                    <WorkCard name="hehe" image="https://cdn.cuberto.com/cb/img/services/digital/1.jpg" />
+                </div>
             </div>
-        </div>
+        </section>
     );
 };
 

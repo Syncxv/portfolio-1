@@ -2,10 +2,12 @@ import { Component } from 'solid-js';
 import Styles from './NavBar.module.scss';
 type Props = { className?: string };
 
+export let navRef!: HTMLDivElement;
+
 const NavBar: Component<Props> = ({ className = ' ' }) => {
     return (
         <>
-            <div class={`navbar flex justify-between py-5 absolute top-0 right-0 left-0 bg-transparent w-screen z-50 ${className}`}>
+            <div ref={navRef} class={`navbar flex justify-between py-5 absolute top-0 right-0 left-0 bg-transparent w-screen z-50 px-4 ${className}`}>
                 <div class="home">
                     <a href="/" class="mix-blend-difference">
                         Home
