@@ -16,8 +16,8 @@ const App: Component = () => {
     let scrollerRef: HTMLDivElement;
     let inversed = false;
     onMount(() => {
-        scroller = initGsap(scrollerRef);
-        cursor = createCurosr();
+        (window as any).scroller = scroller = initGsap(scrollerRef);
+        (window as any).cursor = cursor = createCurosr();
     });
 
     return (
@@ -30,6 +30,8 @@ const App: Component = () => {
                         <WorkSection />
                     </div>
                     <ParallaxSection
+                        onMouseEnter={() => cursor.inverse()}
+                        onMouseLeave={() => cursor.unInverse()}
                         onUpdate={(n) => {
                             if (n.progress > 0.96 && !inversed) {
                                 navRef.classList.add('-inverse');

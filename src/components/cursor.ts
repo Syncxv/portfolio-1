@@ -20,6 +20,7 @@ export interface ICursorOptions {
     mediaState: string;
     hideMediaTimeout: number;
     hiddenState: string;
+    inverseClassName: string;
     activeState: string;
     iconState: string;
     iconSvgClassName: string;
@@ -332,6 +333,14 @@ export default class Cursor {
             video: e[this.options.dataAttr + 'Video'],
             stick: e[this.options.dataAttr + 'Stick'],
         };
+    }
+
+    inverse() {
+        this.el.classList.add(this.options.inverseClassName);
+    }
+    //shut up
+    unInverse() {
+        this.el.classList.remove(this.options.inverseClassName);
     }
     destroy() {
         gsap.ticker.remove(this.ticker);

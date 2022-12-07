@@ -16,6 +16,7 @@ export const createCurosr = () => {
         mediaClassName: 'pt-cursor-media',
         mediaBoxClassName: 'pt-media-box',
         mediaState: '-media',
+        inverseClassName: '-inverse',
         hideMediaTimeout: 300,
         textClassName: 'pt-cursor-text',
         textState: '-text',

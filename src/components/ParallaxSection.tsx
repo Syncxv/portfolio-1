@@ -1,4 +1,4 @@
-import { onMount, ParentComponent } from 'solid-js';
+import { JSX, onMount, ParentComponent, splitProps } from 'solid-js';
 import { tlPararallax } from '../utils/parallax';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 type Props = {
@@ -7,10 +7,17 @@ type Props = {
     className?: string;
 };
 
-const ParallaxSection: ParentComponent<Props> = ({ zIndex, children, onUpdate = () => {}, className = '' }) => {
+const ParallaxSection: ParentComponent<Props & JSX.HTMLAttributes<HTMLElement>> = (props) => {
     let target: HTMLElement;
     let content: HTMLElement;
-    let inversed = false;
+    const [{ zIndex, children, onUpdate = () => {}, className = '' }, rest] = splitProps(props, [
+        'children',
+        'zIndex',
+        'onUpdate',
+        'onUpdate',
+        'className',
+    ]);
+
     onMount(() => {
         let timeline = tlPararallax(content);
 
@@ -24,7 +31,7 @@ const ParallaxSection: ParentComponent<Props> = ({ zIndex, children, onUpdate = 
         });
     });
     return (
-        <section ref={(r) => (target = r)} style={{ 'z-index': zIndex }} class="h-auto min-h-[700px]">
+        <section {...rest} ref={(r) => (target = r)} style={{ 'z-index': zIndex }} class="h-auto min-h-[700px]">
             <div
                 ref={(r) => (content = r)}
                 class={`content relative flex flex-col items-center justify-center overflow-hidden min-h-screen ${className}`}
