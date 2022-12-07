@@ -10,7 +10,7 @@ type Props = {
 
 const WorkCard: Component<Props> = ({ name, image, description }) => {
     return (
-        <div class="work-card w-80 aspect-square flex flex-col justify-center items-start gap-4">
+        <div class="work-card w-96 aspect-square flex flex-col justify-center items-start gap-4">
             <div
                 onMouseOver={() => cursor.setText('Case Study')}
                 onMouseLeave={() => cursor.removeText()}
