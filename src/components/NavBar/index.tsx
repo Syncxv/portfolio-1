@@ -17,9 +17,9 @@ const NavBar: Component<Props> = ({ className = ' ' }) => {
                 </div>
 
                 <ul class="flex items-center justify-center gap-4">
-                    <li>
+                    {/* <li>
                         <a href="#about">About</a>
-                    </li>
+                    </li> */}
                     <li>
                         <a href="#work">Work</a>
                     </li>
