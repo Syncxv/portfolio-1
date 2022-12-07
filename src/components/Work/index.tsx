@@ -11,9 +11,21 @@ const WorkSection: Component<Props> = ({}) => {
                     style={{ 'grid-template-columns': 'repeat(auto-fit, minmax(33vmax, 0.1fr))' }}
                     class="grid items-center justify-center gap-[10rem]"
                 >
-                    <WorkCard description="really cool stuff" name="hehe" image="https://cdn.cuberto.com/cb/img/services/digital/1.jpg" />
-                    <WorkCard description="really cool stuff" name="hehe" image="https://cdn.cuberto.com/cb/img/services/digital/1.jpg" />
-                    <WorkCard description="really cool stuff" name="hehe" image="https://cdn.cuberto.com/cb/img/services/digital/1.jpg" />
+                    <WorkCard
+                        description="A Full-Stack Application that is similar to twitter. It uses next js & chakra ui for the frontend and a mongodb, graphql backend"
+                        name="Twitter Clone"
+                        image="https://media.discordapp.net/attachments/748017439496732702/1050071593453371432/Frame_2.png"
+                    />
+                    <WorkCard
+                        description="really cool stuff"
+                        name="hehe"
+                        image="https://media.discordapp.net/attachments/748017439496732702/1050071593453371432/Frame_2.png?width=630&height=630"
+                    />
+                    <WorkCard
+                        description="really cool stuff"
+                        name="hehe"
+                        image="https://media.discordapp.net/attachments/748017439496732702/1050071593453371432/Frame_2.png?width=630&height=630"
+                    />
                 </div>
             </div>
         </section>
