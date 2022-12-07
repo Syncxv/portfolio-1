@@ -26,6 +26,53 @@ const WorkSection: Component<Props> = ({}) => {
                         name="hehe"
                         image="https://media.discordapp.net/attachments/748017439496732702/1050071593453371432/Frame_2.png?width=630&height=630"
                     />
+                    <WorkCard
+                        description="really cool stuff"
+                        name="hehe"
+                        image="https://media.discordapp.net/attachments/748017439496732702/1050071593453371432/Frame_2.png?width=630&height=630"
+                    />
+
+                    <WorkCard
+                        description="really cool stuff"
+                        name="hehe"
+                        image="https://media.discordapp.net/attachments/748017439496732702/1050071593453371432/Frame_2.png?width=630&height=630"
+                    />
+
+                    <WorkCard
+                        description="really cool stuff"
+                        name="hehe"
+                        image="https://media.discordapp.net/attachments/748017439496732702/1050071593453371432/Frame_2.png?width=630&height=630"
+                    />
+
+                    <WorkCard
+                        description="really cool stuff"
+                        name="hehe"
+                        image="https://media.discordapp.net/attachments/748017439496732702/1050071593453371432/Frame_2.png?width=630&height=630"
+                    />
+
+                    <WorkCard
+                        description="really cool stuff"
+                        name="hehe"
+                        image="https://media.discordapp.net/attachments/748017439496732702/1050071593453371432/Frame_2.png?width=630&height=630"
+                    />
+
+                    <WorkCard
+                        description="really cool stuff"
+                        name="hehe"
+                        image="https://media.discordapp.net/attachments/748017439496732702/1050071593453371432/Frame_2.png?width=630&height=630"
+                    />
+
+                    <WorkCard
+                        description="really cool stuff"
+                        name="hehe"
+                        image="https://media.discordapp.net/attachments/748017439496732702/1050071593453371432/Frame_2.png?width=630&height=630"
+                    />
+
+                    <WorkCard
+                        description="really cool stuff"
+                        name="hehe"
+                        image="https://media.discordapp.net/attachments/748017439496732702/1050071593453371432/Frame_2.png?width=630&height=630"
+                    />
                 </div>
             </div>
         </section>
