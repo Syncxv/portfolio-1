@@ -22,7 +22,7 @@ const App: Component = () => {
 
     return (
         <div class="wrapper">
-            <NavBar className="mx-auto max-w-screen-2xl" />
+            <NavBar />
             <div ref={(r) => (scrollerRef = r)} class="scroller will-change-transform">
                 <main class="mx-auto">
                     <div class="relative z-10">
