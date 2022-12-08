@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { Component, onMount } from 'solid-js';
+import { Component, For, onMount } from 'solid-js';
+import { WORKS } from '../../constants';
 import { slideUpOverflow } from '../../utils/slideUpOverflow';
 import WorkCard from './WorkCard';
 
@@ -27,11 +28,11 @@ const WorkSection: Component<Props> = ({}) => {
                     style={{ 'grid-template-columns': 'repeat(auto-fit, minmax(33vmax, 0.1fr))' }}
                     class="grid items-center justify-center w-full gap-[10rem]"
                 >
-                    <WorkCard
-                        description="A Full-Stack Application that is similar to twitter. It uses next js & chakra ui for the frontend and a mongodb, graphql backend"
-                        name="Twitter Clone"
-                        image="https://media.discordapp.net/attachments/748017439496732702/1050071593453371432/Frame_2.png"
-                    />
+                    {
+                        <For each={WORKS} fallback={<div>Loading..</div>}>
+                            {(work) => <WorkCard name={work.name} image={work.cardImage} description={work.cardDescription} />}
+                        </For>
+                    }
                 </div>
             </div>
         </section>

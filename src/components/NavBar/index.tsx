@@ -1,10 +1,26 @@
-import { Component } from 'solid-js';
-import { scroller } from '../../App';
+import { Component, onMount } from 'solid-js';
+import { isMobile } from '../../utils/isMobile';
+import { scroller } from '../Layout';
 type Props = { className?: string };
 
 export let navRef!: HTMLDivElement;
 
 const NavBar: Component<Props> = ({ className = ' ' }) => {
+    let inversed: boolean = false;
+    onMount(() => {
+        if (isMobile()) {
+            scroller.addListener((n) => {
+                if (n.offset.y > 1454 + 100 && !inversed) {
+                    navRef.classList.add('-inverse');
+                    inversed = true;
+                }
+                if (n.offset.y < 1454 + 100 && inversed) {
+                    navRef.classList.remove('-inverse');
+                    inversed = false;
+                }
+            });
+        }
+    });
     return (
         <>
             <div

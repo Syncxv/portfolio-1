@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Component, onMount } from 'solid-js';
-import { cursor } from '../../App';
+import { cursor } from '../Layout';
 import Arrow from '../Icons/Arrow';
 
 type Props = {
