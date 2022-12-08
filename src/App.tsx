@@ -56,7 +56,7 @@ const App: Component = () => {
                             }
                         }}
                         zIndex={8}
-                        className="bg-white text-black"
+                        className="bg-white text-black h-full"
                     >
                         <Footer />
                     </ParallaxSection>

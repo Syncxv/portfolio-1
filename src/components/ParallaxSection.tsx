@@ -9,8 +9,8 @@ type Props = {
 };
 
 const ParallaxSection: ParentComponent<Props & JSX.HTMLAttributes<HTMLElement>> = (props) => {
-    let target: HTMLElement;
-    let content: HTMLElement;
+    let target!: HTMLElement;
+    let content!: HTMLDivElement;
     const [{ zIndex, children, onUpdate = () => {}, className = '' }, rest] = splitProps(props, [
         'children',
         'zIndex',
@@ -33,11 +33,8 @@ const ParallaxSection: ParentComponent<Props & JSX.HTMLAttributes<HTMLElement>> 
         });
     });
     return (
-        <section {...rest} ref={(r) => (target = r)} style={{ 'z-index': zIndex }} class="h-auto min-h-[700px]">
-            <div
-                ref={(r) => (content = r)}
-                class={`content relative flex flex-col items-center justify-center overflow-hidden min-h-screen ${className}`}
-            >
+        <section {...rest} ref={(r) => (target = r)} style={{ 'z-index': zIndex }} class="h-screen min-h-[700px]">
+            <div ref={content} class={`content relative flex flex-col items-center justify-center overflow-hidden min-h-screen ${className}`}>
                 {children}
             </div>
         </section>

@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 
-export const slideUpOverflow = (elem: HTMLElement) => {
+export const slideUpOverflow = (elem: HTMLElement, props: gsap.TweenVars = {}) => {
     const timeline = gsap.timeline();
     timeline.fromTo(
         elem,
@@ -12,6 +12,7 @@ export const slideUpOverflow = (elem: HTMLElement) => {
             ease: 'power3.out',
             duration: 1.8,
             stagger: 0.15,
+            ...props,
         },
         0.2
     );

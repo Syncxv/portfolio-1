@@ -11,7 +11,7 @@ const WorkSection: Component<Props> = ({}) => {
     onMount(() => {
         ScrollTrigger.create({
             trigger: heading,
-            animation: slideUpOverflow(heading),
+            animation: slideUpOverflow(heading, { duration: 1.4, stagger: 0 }),
             start: 'top bottom',
         });
     });

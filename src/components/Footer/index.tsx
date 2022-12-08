@@ -14,7 +14,7 @@ const Footer = (props: Props) => {
                     Contact Me
                 </a>
             </div>
-            <div class="contant-grid flex flex-col mt-20 lg:grid lg:grid-cols-2 gap-12 items-center">
+            <div class="contact-grid flex flex-col mt-20 lg:grid lg:grid-cols-2 gap-12 items-center">
                 <div class="email font-bold text-2xl">
                     <p>aruldevarackal1@gmail.com</p>
                 </div>
