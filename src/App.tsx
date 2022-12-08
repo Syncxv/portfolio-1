@@ -21,11 +21,11 @@ const App: Component = () => {
         (window as any).cursor = cursor = createCurosr();
         if (isMobile()) {
             scroller.addListener((n) => {
-                if (n.offset.y > 1454 && !inversed) {
+                if (n.offset.y > 1454 + 100 && !inversed) {
                     navRef.classList.add('-inverse');
                     inversed = true;
                 }
-                if (n.offset.y < 1454 && inversed) {
+                if (n.offset.y < 1454 + 100 && inversed) {
                     navRef.classList.remove('-inverse');
                     inversed = false;
                 }
