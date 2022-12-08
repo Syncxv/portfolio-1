@@ -55,19 +55,19 @@ const Hero: Component<Props> = (props) => {
     return (
         <>
             <section class="flex justify-center relative bg-primary-black text-white z-20">
-                <div class="wrapper absolute top-1/3">
-                    <div class="relative overflow-hidden">
-                        <p ref={firstRef} class="text-xl">
+                <div class="wrapper absolute top-1/3 lg:block flex flex-col items-center justify-center">
+                    <div class="self-start sm:ml-6 relative overflow-hidden">
+                        <p ref={firstRef} class="text-[1.5vmax]">
                             Aruldev Arackal
                         </p>
                     </div>
                     <div class="relative overflow-hidden">
-                        <h1 ref={heading1} class="text-8xl">
+                        <h1 ref={heading1} class="text-[6.6vmax]">
                             Video Editor
                         </h1>
                     </div>
                     <div class="relative overflow-hidden">
-                        <h1 ref={heading2} class="text-8xl ml-16 ">
+                        <h1 ref={heading2} class="text-[6.6vmax] lg:ml-16 ">
                             & Developer
                         </h1>
                     </div>
