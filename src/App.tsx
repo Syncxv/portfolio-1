@@ -8,6 +8,7 @@ import ParallaxSection from './components/ParallaxSection';
 import Footer from './components/Footer';
 import WorkSection from './components/Work';
 import { createCurosr } from './utils/createCursor';
+import { isMobile } from './utils/isMobile';
 
 export let scroller: Scrollbar;
 export let cursor: Cursor | null;
@@ -18,6 +19,18 @@ const App: Component = () => {
     onMount(() => {
         (window as any).scroller = scroller = initGsap(scrollerRef);
         (window as any).cursor = cursor = createCurosr();
+        if (isMobile()) {
+            scroller.addListener((n) => {
+                if (n.offset.y > 1454 && !inversed) {
+                    navRef.classList.add('-inverse');
+                    inversed = true;
+                }
+                if (n.offset.y < 1454 && inversed) {
+                    navRef.classList.remove('-inverse');
+                    inversed = false;
+                }
+            });
+        }
     });
 
     return (
