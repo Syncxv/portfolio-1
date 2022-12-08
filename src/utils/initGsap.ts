@@ -2,10 +2,11 @@ import Scrollbar from 'smooth-scrollbar';
 import SoftScrollPlugin from './SoftScroll';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { isMobile } from './isMobile';
 
 export const initGsap = (scrollerRef: HTMLDivElement) => {
     gsap.registerPlugin(ScrollTrigger);
-    Scrollbar.use(SoftScrollPlugin);
+    if (!isMobile()) Scrollbar.use(SoftScrollPlugin);
     const scroller = ((window as any).scroller = Scrollbar.init(scrollerRef, {
         continuousScrolling: false,
         damping: 0.12,
