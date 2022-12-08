@@ -304,23 +304,27 @@ export default class Cursor {
             this.removeSkewing();
     }
     setImg(src: string) {
-        this.mediaImg || (this.mediaImg = new Image()), this.mediaImg.src !== src && (this.mediaImg.src = src), this.setMedia(this.mediaImg);
+        this.mediaImg || (this.mediaImg = new Image());
+        this.mediaImg.src !== src && (this.mediaImg.src = src);
+        this.setMedia(this.mediaImg);
     }
     removeImg() {
         this.removeMedia();
     }
     setVideo(src: string) {
-        this.mediaVideo ||
-            ((this.mediaVideo = document.createElement('video')),
-            (this.mediaVideo.muted = !0),
-            (this.mediaVideo.loop = !0),
-            (this.mediaVideo.autoplay = !0)),
-            this.mediaVideo.src !== src && ((this.mediaVideo.src = src), this.mediaVideo.load()),
-            this.mediaVideo.play(),
+        if (!this.mediaVideo) {
+            this.mediaVideo = document.createElement('video');
+            this.mediaVideo.muted = !0;
+            this.mediaVideo.loop = !0;
+            this.mediaVideo.autoplay = !0;
+            this.mediaVideo.src !== src && ((this.mediaVideo.src = src), this.mediaVideo.load());
+            this.mediaVideo.play();
             this.setMedia(this.mediaVideo);
+        }
     }
     removeVideo() {
-        this.mediaVideo && this.mediaVideo.readyState > 2 && this.mediaVideo.pause(), this.removeMedia();
+        this.mediaVideo && this.mediaVideo.readyState > 2 && this.mediaVideo.pause();
+        this.removeMedia();
     }
     getFromDataset(t: HTMLElement) {
         let e = t.dataset;

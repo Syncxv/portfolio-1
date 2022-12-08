@@ -72,9 +72,8 @@ const WorkCard: Component<Props> = ({ name, image, description, path }) => {
                     onClick={() => {
                         naviagte(`/case/${path}`);
                         cursor?.removeText();
+                        cursor?.removeState('-pointer');
                     }}
-                    onMouseOver={() => cursor?.setText('CLICK ME')}
-                    onMouseLeave={() => cursor?.removeText()}
                 >
                     <Arrow />
                 </button>
