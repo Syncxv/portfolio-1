@@ -10,7 +10,7 @@ import WorkSection from './components/Work';
 import { createCurosr } from './utils/createCursor';
 
 export let scroller: Scrollbar;
-export let cursor: Cursor;
+export let cursor: Cursor | null;
 
 const App: Component = () => {
     let scrollerRef: HTMLDivElement;
@@ -30,8 +30,8 @@ const App: Component = () => {
                         <WorkSection />
                     </div>
                     <ParallaxSection
-                        onMouseEnter={() => cursor.inverse()}
-                        onMouseLeave={() => cursor.unInverse()}
+                        onMouseEnter={() => cursor?.inverse()}
+                        onMouseLeave={() => cursor?.unInverse()}
                         onUpdate={(n) => {
                             if (n.progress > 0.96 && !inversed) {
                                 navRef.classList.add('-inverse');

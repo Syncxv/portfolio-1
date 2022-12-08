@@ -1,6 +1,8 @@
 import Cursor from '../components/cursor';
+import { isMobile } from './isMobile';
 
 export const createCurosr = () => {
+    if (isMobile()) return null;
     return new Cursor({
         container: 'body',
         className: 'pt-cursor',

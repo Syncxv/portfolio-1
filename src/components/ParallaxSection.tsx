@@ -1,6 +1,7 @@
 import { JSX, onMount, ParentComponent, splitProps } from 'solid-js';
 import { tlPararallax } from '../utils/parallax';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { isMobile } from '../utils/isMobile';
 type Props = {
     zIndex: number;
     onUpdate?: (n: ScrollTrigger) => void;
@@ -19,6 +20,7 @@ const ParallaxSection: ParentComponent<Props & JSX.HTMLAttributes<HTMLElement>> 
     ]);
 
     onMount(() => {
+        if (isMobile()) return;
         let timeline = tlPararallax(content);
 
         ScrollTrigger.create({

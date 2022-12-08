@@ -25,7 +25,7 @@ const WorkSection: Component<Props> = ({}) => {
                 </div>
                 <div
                     style={{ 'grid-template-columns': 'repeat(auto-fit, minmax(33vmax, 0.1fr))' }}
-                    class="grid items-center justify-center gap-[10rem]"
+                    class="grid items-center justify-center w-full gap-[10rem]"
                 >
                     <WorkCard
                         description="A Full-Stack Application that is similar to twitter. It uses next js & chakra ui for the frontend and a mongodb, graphql backend"
