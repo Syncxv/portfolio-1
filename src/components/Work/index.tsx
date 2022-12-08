@@ -30,7 +30,7 @@ const WorkSection: Component<Props> = ({}) => {
                 >
                     {
                         <For each={WORKS} fallback={<div>Loading..</div>}>
-                            {(work) => <WorkCard name={work.name} image={work.cardImage} description={work.cardDescription} />}
+                            {(work) => <WorkCard path={work.id} name={work.name} image={work.cardImage} description={work.cardDescription} />}
                         </For>
                     }
                 </div>

@@ -3,11 +3,13 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Component, onMount } from 'solid-js';
 import { cursor } from '../Layout';
 import Arrow from '../Icons/Arrow';
+import { A, useHref, useNavigate } from '@solidjs/router';
 
 type Props = {
     name: string;
     description: string;
     image: string;
+    path: string;
 };
 
 const slideUp = (image: HTMLDivElement, container: HTMLDivElement) => {
@@ -38,10 +40,11 @@ const slideUp = (image: HTMLDivElement, container: HTMLDivElement) => {
     return timeline;
 };
 
-const WorkCard: Component<Props> = ({ name, image, description }) => {
+const WorkCard: Component<Props> = ({ name, image, description, path }) => {
     let imageRef!: HTMLImageElement;
     let imageContainer!: HTMLDivElement;
     let card!: HTMLDivElement;
+    const naviagte = useNavigate();
     onMount(() => {
         ScrollTrigger.create({
             trigger: card,
@@ -52,6 +55,10 @@ const WorkCard: Component<Props> = ({ name, image, description }) => {
     return (
         <div ref={card} class="work-card w-[33vmax] aspect-square flex flex-col justify-center items-start gap-4">
             <div
+                onClick={() => {
+                    naviagte(`/case/${path}`);
+                    cursor?.removeText();
+                }}
                 ref={imageContainer}
                 onMouseOver={() => cursor?.setText('Case Study')}
                 onMouseLeave={() => cursor?.removeText()}
@@ -61,7 +68,14 @@ const WorkCard: Component<Props> = ({ name, image, description }) => {
             </div>
             <div class="flex justify-between items-center w-full">
                 <span class="text-[2vmax]">{name}</span>
-                <button onMouseOver={() => cursor?.setText('CLICK ME')} onMouseLeave={() => cursor?.removeText()}>
+                <button
+                    onClick={() => {
+                        naviagte(`/case/${path}`);
+                        cursor?.removeText();
+                    }}
+                    onMouseOver={() => cursor?.setText('CLICK ME')}
+                    onMouseLeave={() => cursor?.removeText()}
+                >
                     <Arrow />
                 </button>
             </div>
