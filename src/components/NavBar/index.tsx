@@ -1,4 +1,5 @@
 import { Component } from 'solid-js';
+import { scroller } from '../../App';
 type Props = { className?: string };
 
 export let navRef!: HTMLDivElement;
@@ -12,21 +13,17 @@ const NavBar: Component<Props> = ({ className = ' ' }) => {
                 class={`navbar flex justify-between py-5 absolute top-0 right-0 left-0 bg-transparent w-screen z-50 px-4 transition-colors duration-200 ease-out mx-auto ${className}`}
             >
                 <div class="home">
-                    <a href="/" class="mix-blend-difference">
+                    <button onClick={() => scroller.scrollIntoView(document.getElementById('home')!)} class="mix-blend-difference">
                         Home
-                    </a>
+                    </button>
                 </div>
 
                 <ul class="flex items-center justify-center gap-4">
                     {/* <li>
                         <a href="#about">About</a>
                     </li> */}
-                    <li>
-                        <a href="#work">Work</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Contact</a>
-                    </li>
+                    <button onClick={() => scroller.scrollIntoView(document.getElementById('work')!)}>Work</button>
+                    <button onClick={() => scroller.scrollIntoView(document.getElementById('contact')!)}>Contact</button>
                 </ul>
             </div>
         </>

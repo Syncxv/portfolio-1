@@ -54,7 +54,7 @@ const Hero: Component<Props> = (props) => {
     });
     return (
         <>
-            <section class="flex justify-center relative bg-primary-black text-white z-20">
+            <section id="home" class="flex justify-center relative bg-primary-black text-white z-20">
                 <div class="wrapper absolute top-1/3 lg:block flex flex-col items-center justify-center">
                     <div class="self-start sm:ml-6 relative overflow-hidden">
                         <p ref={firstRef} class="text-[1.5vmax]">

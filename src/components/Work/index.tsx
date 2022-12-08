@@ -16,7 +16,7 @@ const WorkSection: Component<Props> = ({}) => {
         });
     });
     return (
-        <section class="bg-primary-black h-full z-50">
+        <section id="work" class="bg-primary-black h-full z-50">
             <div class="work-section flex flex-col items-center gap-12 pb-[5rem]">
                 <div class="relative overflow-hidden">
                     <h2 ref={heading} class="text-[5vmax] ">

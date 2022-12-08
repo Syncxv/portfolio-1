@@ -55,6 +55,7 @@ const App: Component = () => {
                                 inversed = false;
                             }
                         }}
+                        id="contact"
                         zIndex={8}
                         className="bg-white text-black h-full"
                     >
