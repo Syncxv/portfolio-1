@@ -49,3 +49,10 @@ section {
     opacity: 0;
     transition: opacity 400ms;
 }
+
+.scrollbar-track.scrollbar-track-y {
+    background: 0 0;
+    .scrollbar-thumb.scrollbar-thumb-y {
+        background: rgba(83, 83, 83, 0.5);
+    }
+}
