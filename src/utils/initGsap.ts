@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { isMobile } from './isMobile';
 
 export const initGsap = (scrollerRef: HTMLDivElement) => {
+    console.log('INTIALIZING GSAP AND SCROLLBAR');
     gsap.registerPlugin(ScrollTrigger);
     if (!isMobile()) Scrollbar.use(SoftScrollPlugin);
     const scroller = ((window as any).scroller = Scrollbar.init(scrollerRef, {

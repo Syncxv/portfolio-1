@@ -1,3 +1,7 @@
+import { RouteDefinition } from '@solidjs/router';
+import { lazy } from 'solid-js';
+import Home from './components/Home';
+
 interface Links {
     github?: string;
 }
@@ -21,4 +25,9 @@ export const WORKS: Work[] = [
         type: 'development',
         links: [{ github: 'hehe' }],
     },
+];
+
+export const routes: RouteDefinition[] = [
+    { path: '/', component: lazy(() => import('./components/Home')) },
+    { path: '/case/:id', component: lazy(() => import('./components/CasePage')) },
 ];

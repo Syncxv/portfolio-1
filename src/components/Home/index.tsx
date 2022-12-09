@@ -11,7 +11,7 @@ interface Props {}
 const Home: Component<Props> = () => {
     let inversed: boolean = false;
     return (
-        <div>
+        <>
             <div class="relative z-10">
                 <Hero />
                 <WorkSection />
@@ -35,7 +35,7 @@ const Home: Component<Props> = () => {
             >
                 <Footer />
             </ParallaxSection>
-        </div>
+        </>
     );
 };
 export default Home;

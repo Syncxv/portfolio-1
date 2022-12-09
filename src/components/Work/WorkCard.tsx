@@ -1,9 +1,10 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { Component, onMount } from 'solid-js';
-import { cursor } from '../Layout';
+import { Component, createSignal, onMount } from 'solid-js';
+import { animateExit, cursor } from '../Layout';
 import Arrow from '../Icons/Arrow';
 import { A, useHref, useNavigate } from '@solidjs/router';
+import AnimatedText from '../AnimatedText';
 
 type Props = {
     name: string;
@@ -44,21 +45,27 @@ const WorkCard: Component<Props> = ({ name, image, description, path }) => {
     let imageRef!: HTMLImageElement;
     let imageContainer!: HTMLDivElement;
     let card!: HTMLDivElement;
+    const [timeline, setTimeline] = createSignal<gsap.core.Timeline>();
     const naviagte = useNavigate();
+
+    const onClick = () => {
+        cursor?.removeText();
+        animateExit().then(() => {
+            naviagte(`/case/${path}`);
+        });
+    };
     onMount(() => {
+        setTimeline(slideUp(imageRef, imageContainer));
         ScrollTrigger.create({
             trigger: card,
-            animation: slideUp(imageRef, imageContainer),
+            animation: timeline(),
             start: 'top bottom',
         });
     });
     return (
         <div ref={card} class="work-card w-[33vmax] aspect-square flex flex-col justify-center items-start gap-4">
             <div
-                onClick={() => {
-                    naviagte(`/case/${path}`);
-                    cursor?.removeText();
-                }}
+                onClick={onClick}
                 ref={imageContainer}
                 onMouseOver={() => cursor?.setText('Case Study')}
                 onMouseLeave={() => cursor?.removeText()}
@@ -68,13 +75,7 @@ const WorkCard: Component<Props> = ({ name, image, description, path }) => {
             </div>
             <div class="flex justify-between items-center w-full">
                 <span class="text-[2vmax]">{name}</span>
-                <button
-                    onClick={() => {
-                        naviagte(`/case/${path}`);
-                        cursor?.removeText();
-                        cursor?.removeState('-pointer');
-                    }}
-                >
+                <button onClick={onClick}>
                     <Arrow />
                 </button>
             </div>
