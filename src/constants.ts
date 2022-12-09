@@ -1,6 +1,5 @@
 import { RouteDefinition } from '@solidjs/router';
 import { lazy } from 'solid-js';
-import Home from './components/Home';
 
 interface Links {
     github?: string;
@@ -8,8 +7,15 @@ interface Links {
 interface Work {
     id: string;
     name: string;
-    cardImage: string;
-    cardDescription: string;
+    caseStudy: {
+        heading: string;
+        basicInfo: string;
+        whatILearnt: string;
+    };
+    card: {
+        image: string;
+        description: string;
+    };
     video?: string;
     type: 'website' | 'editing' | 'development';
     links: Links[];
@@ -19,9 +25,16 @@ export const WORKS: Work[] = [
     {
         id: 'twitter-clone',
         name: 'Twitter Clone',
-        cardDescription:
-            'A Full-Stack Application that is similar to twitter. It uses next js & chakra ui for the frontend and a mongodb, graphql backend',
-        cardImage: 'https://media.discordapp.net/attachments/748017439496732702/1050071593453371432/Frame_2.png',
+        caseStudy: {
+            heading: 'Social Media Next Js Project',
+            basicInfo: '',
+            whatILearnt: '',
+        },
+        card: {
+            description:
+                'A Full-Stack Application that is similar to twitter. It uses next js & chakra ui for the frontend and a mongodb, graphql backend',
+            image: 'https://media.discordapp.net/attachments/748017439496732702/1050071593453371432/Frame_2.png',
+        },
         type: 'development',
         links: [{ github: 'hehe' }],
     },
