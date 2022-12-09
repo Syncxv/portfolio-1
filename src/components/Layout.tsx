@@ -20,6 +20,7 @@ export const animateExit = () => {
         mainRef.addEventListener(transitionEnd!, onTransitionEnd, false);
 
         function onTransitionEnd() {
+            scroller.setPosition(0, 0);
             mainRef.classList.remove('page-exit-active');
             mainRef.removeEventListener(transitionEnd!, onTransitionEnd);
             res(true);
