@@ -12,6 +12,7 @@ const NavBar: Component<Props> = ({ className = ' ' }) => {
     onMount(() => {
         if (isMobile()) {
             scroller.addListener((n) => {
+                if (location.pathname !== '/') return;
                 if (n.offset.y > 1454 + 100 && !inversed) {
                     navRef.classList.add('-inverse');
                     inversed = true;

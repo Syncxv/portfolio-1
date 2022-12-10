@@ -62,6 +62,7 @@ export default class Cursor {
     mediaImg?: HTMLImageElement;
     mediaVideo?: HTMLVideoElement;
     mediaInt!: NodeJS.Timeout;
+    stick: boolean | { x: number; y: number };
     pos = {
         x: this.initalPos[0],
         y: this.initalPos[1],
@@ -73,7 +74,7 @@ export default class Cursor {
     visible = true;
     constructor(opt: ICursorOptions) {
         this.options = opt;
-
+        this.stick = false;
         this.container = document.querySelector(this.options.container)!;
         this.init();
         this.render(true);
@@ -134,7 +135,7 @@ export default class Cursor {
                     r.img && _this.removeImg();
                     r.video && _this.removeVideo();
                     void 0 !== r.show && _this.hide();
-                    // void 0 !== r.stick && _this.removeStick();
+                    void 0 !== r.stick && _this.removeStick();
                 }
             }
         };
@@ -153,7 +154,7 @@ export default class Cursor {
                     r.img && _this.setImg(r.img);
                     r.video && _this.setVideo(r.video);
                     void 0 !== r.show && _this.show();
-                    // void 0 !== r.stick && _this.setStick(r.stick || elem);
+                    void 0 !== r.stick && _this.setStick(document.querySelector(r.stick) || elem);
                 }
             }
         };
@@ -285,6 +286,15 @@ export default class Cursor {
     removeIcon() {
         this.removeState(this.options.iconState), this.removeSkewing();
     }
+    setStick(ref: HTMLElement) {
+        // const n = ref.getBoundingClientRect();
+        // this.stick = {
+        //     y: n.top + e.height() / 2,
+        //     x: n.left + e.width() / 2,
+        // };
+    }
+
+    removeStick() {}
     setMedia(src: HTMLElement) {
         let e = this;
         clearTimeout(this.mediaInt),
