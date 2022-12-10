@@ -34,7 +34,7 @@ const ParallaxSection: ParentComponent<Props & JSX.HTMLAttributes<HTMLElement>> 
     });
     return (
         <section {...rest} ref={(r) => (target = r)} style={{ 'z-index': zIndex }} class="h-screen min-h-[700px]">
-            <div ref={content} class={`content relative flex flex-col items-center justify-center overflow-hidden min-h-screen ${className}`}>
+            <div ref={content} class={`content relative flex flex-col items-center justify-center overflow-hidden ${className}`}>
                 {children}
             </div>
         </section>

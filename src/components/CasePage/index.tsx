@@ -15,7 +15,6 @@ const CasePage: Component<Props> = () => {
     let heading!: HTMLDivElement;
     let type!: HTMLParagraphElement;
     onMount(() => {
-        console.log(type, heading);
         ScrollTrigger.create({
             trigger: heading,
             animation: slideUpOverflow([type, heading], { duration: 1.4, stagger: 0.2 }),
@@ -40,9 +39,12 @@ const CasePage: Component<Props> = () => {
                     </div>
                 </div>
             </header>
-            <ParallaxSection zIndex={10}>
-                <div class="image grid place-items-center h-screen w-screen">
-                    <h2>IMAGE</h2>
+            <ParallaxSection zIndex={10} style={{ height: 'fit-content' }}>
+                <img src="https://media.discordapp.net/attachments/756761009729044540/1051082255856046150/Slide_16_9_-_1.png" alt="" />
+            </ParallaxSection>
+            <ParallaxSection zIndex={8} class="bg-dark-900">
+                <div class="grid h-screen w-screen place-items-center">
+                    <span>HEYEHHEHEH</span>
                 </div>
             </ParallaxSection>
         </>
