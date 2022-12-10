@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 
-export const slideUpOverflow = (elem: HTMLElement, props: gsap.TweenVars = {}) => {
+export const slideUpOverflow = (elem: gsap.TweenTarget, props: gsap.TweenVars = {}, pos: gsap.Position = 0) => {
     const timeline = gsap.timeline();
     timeline.fromTo(
         elem,
@@ -14,7 +14,7 @@ export const slideUpOverflow = (elem: HTMLElement, props: gsap.TweenVars = {}) =
             stagger: 0.15,
             ...props,
         },
-        0.2
+        pos
     );
 
     return timeline;
