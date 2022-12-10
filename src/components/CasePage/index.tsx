@@ -43,8 +43,14 @@ const CasePage: Component<Props> = () => {
                 <img src="https://media.discordapp.net/attachments/756761009729044540/1051082255856046150/Slide_16_9_-_1.png" alt="" />
             </ParallaxSection>
             <ParallaxSection zIndex={8} class="bg-dark-900">
-                <div class="grid h-screen w-screen place-items-center">
-                    <span>HEYEHHEHEH</span>
+                <div
+                    style={{ 'grid-template-columns': '.4fr 1fr' }}
+                    class="grid justify-items-start p-20 h-screen w-screen place-content-center items-start"
+                >
+                    <span class="text-2xl">Context</span>
+                    <p style={{ 'word-break': 'break-word' }} class="text-xl w-full">
+                        {work.caseStudy.context}
+                    </p>
                 </div>
             </ParallaxSection>
         </>

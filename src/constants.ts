@@ -5,30 +5,34 @@ interface Links {
     github?: string;
 }
 interface Work {
-    id: string;
-    name: string;
-    caseStudy: {
-        heading: string;
-        basicInfo: string;
-        whatILearnt: string;
+    readonly id: string;
+    readonly name: string;
+    readonly caseStudy: {
+        readonly heading: string;
+        readonly context: string;
+        readonly challanges: string[];
+        readonly images: string[];
     };
-    card: {
-        image: string;
-        description: string;
+    readonly card: {
+        readonly image: string;
+        readonly description: string;
     };
-    video?: string;
-    type: 'website' | 'editing' | 'development';
-    links: Links[];
+    readonly video?: string;
+    readonly type: 'website' | 'editing' | 'development';
+    readonly links: Links[];
 }
 
+//TODO: make images webp / compress and optimize for web
 export const WORKS: Work[] = [
     {
         id: 'twitter-clone',
         name: 'Twitter Clone',
         caseStudy: {
             heading: 'Social Media Next Js Project',
-            basicInfo: '',
-            whatILearnt: '',
+            context:
+                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quibusdam commodi necessitatibus natus sunt nisi. Doloribus aperiam quibusdam magni corrupti sunt provident pariatur doloremque similique eligendi vero excepturi delectus rem eius quod temporibus deserunt eveniet est cumque, aspernatur non ab? Et numquam nobis explicabo temporibus qui cupiditate eum nostrum alias.',
+            challanges: ['challange 1', 'challange 2'],
+            images: ['https://media.discordapp.net/attachments/756761009729044540/1051082255856046150/Slide_16_9_-_1.png'],
         },
         card: {
             description:
