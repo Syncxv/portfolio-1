@@ -42,6 +42,24 @@ export const WORKS: Work[] = [
         type: 'development',
         links: [{ github: 'hehe' }],
     },
+
+    {
+        id: 'steamed',
+        name: 'Steamed',
+        caseStudy: {
+            heading: 'Steamed',
+            context:
+                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quibusdam commodi necessitatibus natus sunt nisi. Doloribus aperiam quibusdam magni corrupti sunt provident pariatur doloremque similique eligendi vero excepturi delectus rem eius quod temporibus deserunt eveniet est cumque, aspernatur non ab? Et numquam nobis explicabo temporibus qui cupiditate eum nostrum alias.',
+            challanges: ['challange 1', 'challange 2'],
+            images: ['https://media.discordapp.net/attachments/756761009729044540/1051082255856046150/Slide_16_9_-_1.png'],
+        },
+        card: {
+            description: 'A client mod for the steam desktop client.',
+            image: 'https://media.discordapp.net/attachments/748017439496732702/1051128279999991918/steamed.png?width=630&height=630',
+        },
+        type: 'development',
+        links: [{ github: 'hehe' }],
+    },
 ];
 
 export const routes: RouteDefinition[] = [

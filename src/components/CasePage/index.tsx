@@ -24,7 +24,7 @@ const CasePage: Component<Props> = () => {
     return (
         <>
             <header class="relative h-screen w-screen z-20 bg-primary-black">
-                <div class="content grid grid-cols-3 justify-items-center items-center h-full ">
+                <div class="content grid grid-cols-3 justify-items-start p-20 items-center h-full ">
                     <div style={{ 'grid-column': '1/4' }} class="heading">
                         <div class="relative overflow-hidden">
                             <p ref={type} class="text-sm align-self-start">
@@ -40,7 +40,7 @@ const CasePage: Component<Props> = () => {
                 </div>
             </header>
             <ParallaxSection zIndex={10} style={{ height: 'fit-content' }}>
-                <img src="https://media.discordapp.net/attachments/756761009729044540/1051082255856046150/Slide_16_9_-_1.png" alt="" />
+                <img src={work.caseStudy.images[0]} alt="" />
             </ParallaxSection>
             <ParallaxSection zIndex={8} class="bg-dark-900">
                 <div
