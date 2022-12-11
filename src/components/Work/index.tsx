@@ -20,7 +20,7 @@ const WorkSection: Component<Props> = ({}) => {
         <section id="work" class="bg-primary-black h-full z-50">
             <div class="work-section flex flex-col items-center gap-12 pb-[5rem]">
                 <div class="relative overflow-hidden mt-20">
-                    <h2 ref={heading} class="text-4xl lg:text-8xl">
+                    <h2 ref={heading} class="text-4xl lg:text-7xl">
                         Work
                     </h2>
                 </div>
