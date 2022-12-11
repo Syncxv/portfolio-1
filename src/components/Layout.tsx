@@ -37,8 +37,8 @@ const Layout: ParentComponent<Props> = ({ children }) => {
     });
     return (
         <div class="wrapper">
+            <NavBar />
             <div ref={scrollerRef} class="scroller will-change-transform">
-                <NavBar />
                 <main ref={mainRef} class="mx-auto">
                     {children}
                 </main>

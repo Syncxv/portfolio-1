@@ -1,9 +1,6 @@
 import { Component } from 'solid-js';
-import { cursor } from '../Layout';
 import Footer from '../Footer';
 import Hero from '../Hero';
-import { navRef } from '../NavBar';
-import ParallaxSection from '../ParallaxSection';
 import WorkSection from '../Work';
 
 interface Props {}

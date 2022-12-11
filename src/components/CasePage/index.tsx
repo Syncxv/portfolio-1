@@ -1,6 +1,6 @@
 import { useParams } from '@solidjs/router';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { Component, onMount } from 'solid-js';
+import { Component, createSignal, onCleanup, onMount } from 'solid-js';
 import { WORKS } from '../../constants';
 import { slideUpOverflow } from '../../utils/slideUpOverflow';
 import Footer from '../Footer';
@@ -15,13 +15,20 @@ const CasePage: Component<Props> = () => {
 
     let heading!: HTMLDivElement;
     let type!: HTMLParagraphElement;
+
+    let [scrollTrigger, setScrollTigger] = createSignal<ScrollTrigger>();
     onMount(() => {
-        ScrollTrigger.create({
-            trigger: heading,
-            animation: slideUpOverflow([type, heading], { duration: 1.4, stagger: 0.2 }),
-            start: 'top bottom',
-        });
+        ScrollTrigger.refresh();
+        setScrollTigger(
+            ScrollTrigger.create({
+                trigger: heading,
+                animation: slideUpOverflow([type, heading], { duration: 1.4, stagger: 0.2 }),
+                start: 'top bottom',
+            })
+        );
     });
+
+    onCleanup(() => scrollTrigger()?.kill());
     return (
         <>
             <header class="relative h-screen w-screen z-20 bg-primary-black">
@@ -54,6 +61,7 @@ const CasePage: Component<Props> = () => {
                     </p>
                 </div>
             </ParallaxSection>
+
             <Footer />
         </>
     );

@@ -1,11 +1,10 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { Component, createSignal, onMount } from 'solid-js';
-import { animateExit, cursor } from '../Layout';
+import { Component, createSignal, onCleanup, onMount } from 'solid-js';
+import { animateExit, cursor, scroller } from '../Layout';
 import Arrow from '../Icons/Arrow';
 import { A, useHref, useNavigate } from '@solidjs/router';
 import AnimatedText from '../AnimatedText';
-
 type Props = {
     name: string;
     description: string;
@@ -46,6 +45,7 @@ const WorkCard: Component<Props> = ({ name, image, description, path }) => {
     let imageContainer!: HTMLDivElement;
     let card!: HTMLDivElement;
     const [timeline, setTimeline] = createSignal<gsap.core.Timeline>();
+    let [scrollTrigger, setScrollTigger] = createSignal<ScrollTrigger>();
     const naviagte = useNavigate();
 
     const onClick = () => {
@@ -56,12 +56,17 @@ const WorkCard: Component<Props> = ({ name, image, description, path }) => {
     };
     onMount(() => {
         setTimeline(slideUp(imageRef, imageContainer));
-        ScrollTrigger.create({
-            trigger: card,
-            animation: timeline(),
-            start: 'top bottom',
-        });
+        setScrollTigger(
+            ScrollTrigger.create({
+                trigger: card,
+                animation: timeline(),
+                start: 'top bottom',
+            })
+        );
     });
+
+    onCleanup(() => scrollTrigger()?.kill());
+
     return (
         <div ref={card} class="work-card w-[33vmax] aspect-square flex flex-col justify-center items-start gap-4">
             <div

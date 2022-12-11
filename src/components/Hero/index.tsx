@@ -1,4 +1,4 @@
-import { Component, onMount } from 'solid-js';
+import { Component, createSignal, onCleanup, onMount } from 'solid-js';
 import gsap from 'gsap';
 type Props = {};
 
@@ -6,8 +6,9 @@ const Hero: Component<Props> = (props) => {
     let firstRef: HTMLDivElement | undefined;
     let heading1: HTMLDivElement | undefined;
     let heading2: HTMLDivElement | undefined;
+    let [timeLine, setTimeLine] = createSignal<gsap.core.Timeline>();
     onMount(() => {
-        let timeline = gsap.timeline();
+        let timeline = setTimeLine(gsap.timeline());
         let all = [firstRef, heading1];
         timeline.set(all, {
             willChange: 'transform',
@@ -52,6 +53,7 @@ const Hero: Component<Props> = (props) => {
             0.2
         );
     });
+    onCleanup(() => timeLine()?.kill());
     return (
         <>
             <section id="home" class="flex justify-center relative bg-primary-black text-white z-20">
