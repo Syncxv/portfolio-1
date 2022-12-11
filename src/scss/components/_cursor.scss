@@ -103,12 +103,16 @@
     }
 }
 
+// .pt-cursor.-pointer:before {
+//     -webkit-transform: scale(0.15);
+//     -moz-transform: scale(0.15);
+//     -ms-transform: scale(0.15);
+//     -o-transform: scale(0.15);
+//     transform: scale(0.15);
+// }
+
 .pt-cursor.-pointer:before {
-    -webkit-transform: scale(0.15);
-    -moz-transform: scale(0.15);
-    -ms-transform: scale(0.15);
-    -o-transform: scale(0.15);
-    transform: scale(0.15);
+    transform: scale(1.7);
 }
 
 .pt-cursor.-opaque {

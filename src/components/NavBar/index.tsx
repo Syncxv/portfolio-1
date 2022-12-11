@@ -1,6 +1,6 @@
 import { useNavigate } from '@solidjs/router';
 import { Component } from 'solid-js';
-import { animateExit, scroller } from '../Layout';
+import { animateExit, cursor, scroller } from '../Layout';
 type Props = { className?: string };
 
 export let navRef!: HTMLDivElement;
@@ -16,6 +16,8 @@ const NavBar: Component<Props> = ({ className = ' ' }) => {
             >
                 <div class="home">
                     <button
+                        onMouseEnter={() => cursor?.addState('-exclusion -active')}
+                        onMouseLeave={() => cursor?.removeState('-exclusion -active')}
                         onClick={() =>
                             location.pathname === '/'
                                 ? scroller.scrollIntoView(document.getElementById('home')!)
@@ -29,6 +31,8 @@ const NavBar: Component<Props> = ({ className = ' ' }) => {
 
                 <ul class="flex items-center justify-center gap-4">
                     <button
+                        onMouseEnter={() => cursor?.addState('-exclusion -active')}
+                        onMouseLeave={() => cursor?.removeState('-exclusion -active')}
                         onClick={() =>
                             location.pathname === '/'
                                 ? scroller.scrollIntoView(document.getElementById('work')!)
@@ -38,6 +42,8 @@ const NavBar: Component<Props> = ({ className = ' ' }) => {
                         Work
                     </button>
                     <button
+                        onMouseEnter={() => cursor?.addState('-exclusion -active')}
+                        onMouseLeave={() => cursor?.removeState('-exclusion -active')}
                         onClick={() =>
                             location.pathname === '/'
                                 ? scroller.scrollIntoView(document.getElementById('contact')!)
