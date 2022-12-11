@@ -16,8 +16,8 @@ const NavBar: Component<Props> = ({ className = ' ' }) => {
             >
                 <div class="home">
                     <button
-                        onMouseEnter={() => cursor?.addState('-exclusion -active')}
-                        onMouseLeave={() => cursor?.removeState('-exclusion -active')}
+                        onMouseEnter={() => cursor?.addState('-exclusion -open')}
+                        onMouseLeave={() => cursor?.removeState('-exclusion -open')}
                         onClick={() =>
                             location.pathname === '/'
                                 ? scroller.scrollIntoView(document.getElementById('home')!)
@@ -31,8 +31,8 @@ const NavBar: Component<Props> = ({ className = ' ' }) => {
 
                 <ul class="flex items-center justify-center gap-4">
                     <button
-                        onMouseEnter={() => cursor?.addState('-exclusion -active')}
-                        onMouseLeave={() => cursor?.removeState('-exclusion -active')}
+                        onMouseEnter={() => cursor?.addState('-exclusion -open')}
+                        onMouseLeave={() => cursor?.removeState('-exclusion -open')}
                         onClick={() =>
                             location.pathname === '/'
                                 ? scroller.scrollIntoView(document.getElementById('work')!)
@@ -42,8 +42,8 @@ const NavBar: Component<Props> = ({ className = ' ' }) => {
                         Work
                     </button>
                     <button
-                        onMouseEnter={() => cursor?.addState('-exclusion -active')}
-                        onMouseLeave={() => cursor?.removeState('-exclusion -active')}
+                        onMouseEnter={() => cursor?.addState('-exclusion -open')}
+                        onMouseLeave={() => cursor?.removeState('-exclusion -open')}
                         onClick={() =>
                             location.pathname === '/'
                                 ? scroller.scrollIntoView(document.getElementById('contact')!)
