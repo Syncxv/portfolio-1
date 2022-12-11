@@ -24,7 +24,7 @@ const Footer = (props: Props) => {
                 }
             }}
             id="contact"
-            zIndex={1}
+            zIndex={-999}
             className="bg-white text-black h-full"
         >
             <div
