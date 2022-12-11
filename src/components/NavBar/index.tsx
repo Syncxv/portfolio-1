@@ -1,5 +1,6 @@
 import { useNavigate } from '@solidjs/router';
-import { Component } from 'solid-js';
+import { Component, createSignal, onMount } from 'solid-js';
+import { isMobile } from '../../utils/isMobile';
 import { animateExit, cursor, scroller } from '../Layout';
 type Props = { className?: string };
 
@@ -7,6 +8,24 @@ export let navRef!: HTMLDivElement;
 
 const NavBar: Component<Props> = ({ className = ' ' }) => {
     const navigate = useNavigate();
+    let [inversed, setInversed] = createSignal(false);
+    onMount(() => {
+        if (isMobile()) {
+            scroller.addListener((n) => {
+                if (location.pathname !== '/') return;
+                const percent = (n.offset.y / scroller.size.content.height) * 100;
+                console.log(percent);
+                if (percent > 69.9 && !inversed()) {
+                    navRef.classList.add('-inverse');
+                    setInversed(true);
+                }
+                if (percent < 69.9 && inversed()) {
+                    navRef.classList.remove('-inverse');
+                    setInversed(false);
+                }
+            });
+        }
+    });
     return (
         <>
             <div
