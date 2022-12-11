@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Component, createSignal, onCleanup, onMount } from 'solid-js';
-import { animateExit, cursor, scroller } from '../Layout';
+import { animateExit, cursor, isExiting, scroller } from '../Layout';
 import Arrow from '../Icons/Arrow';
 import { A, useHref, useNavigate } from '@solidjs/router';
 import AnimatedText from '../AnimatedText';
@@ -72,7 +72,7 @@ const WorkCard: Component<Props> = ({ name, image, description, path }) => {
             <div
                 onClick={onClick}
                 ref={imageContainer}
-                onMouseOver={() => cursor?.setText('Case Study')}
+                onMouseOver={() => !isExiting() && cursor?.setText('Case Study')}
                 onMouseLeave={() => cursor?.removeText()}
                 class="overflow-hidden h-full w-full"
             >

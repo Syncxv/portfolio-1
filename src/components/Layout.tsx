@@ -1,5 +1,5 @@
 import { Scrollbar } from 'smooth-scrollbar/interfaces';
-import { onMount, ParentComponent } from 'solid-js';
+import { createSignal, onMount, ParentComponent } from 'solid-js';
 import { createCurosr } from '../utils/createCursor';
 import { initGsap } from '../utils/initGsap';
 import { whichTransitionEvent } from '../utils/whichTransition';
@@ -12,8 +12,11 @@ export let scroller: Scrollbar;
 export let cursor: Cursor | null;
 export let mainRef!: HTMLElement;
 
+export const [isExiting, setExiting] = createSignal(false);
+
 export const animateExit = () => {
     return new Promise((res) => {
+        setExiting(true);
         mainRef.classList.add('page-exit-active');
 
         var transitionEnd = whichTransitionEvent();
@@ -23,6 +26,7 @@ export const animateExit = () => {
             scroller.setPosition(0, 0);
             mainRef.classList.remove('page-exit-active');
             mainRef.removeEventListener(transitionEnd!, onTransitionEnd);
+            setExiting(false);
             res(true);
         }
     });
