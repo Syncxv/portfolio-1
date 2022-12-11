@@ -1,29 +1,12 @@
 import { useNavigate } from '@solidjs/router';
-import { Component, onMount } from 'solid-js';
-import { isMobile } from '../../utils/isMobile';
+import { Component } from 'solid-js';
 import { animateExit, scroller } from '../Layout';
 type Props = { className?: string };
 
 export let navRef!: HTMLDivElement;
 
 const NavBar: Component<Props> = ({ className = ' ' }) => {
-    let inversed: boolean = false;
     const navigate = useNavigate();
-    onMount(() => {
-        if (isMobile()) {
-            scroller.addListener((n) => {
-                if (location.pathname !== '/') return;
-                if (n.offset.y > 1454 + 100 && !inversed) {
-                    navRef.classList.add('-inverse');
-                    inversed = true;
-                }
-                if (n.offset.y < 1454 + 100 && inversed) {
-                    navRef.classList.remove('-inverse');
-                    inversed = false;
-                }
-            });
-        }
-    });
     return (
         <>
             <div

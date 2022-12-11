@@ -29,7 +29,7 @@ export const animateExit = () => {
 };
 
 const Layout: ParentComponent<Props> = ({ children }) => {
-    let scrollerRef: HTMLDivElement;
+    let scrollerRef!: HTMLDivElement;
 
     onMount(() => {
         (window as any).scroller = scroller = initGsap(scrollerRef);
@@ -37,8 +37,8 @@ const Layout: ParentComponent<Props> = ({ children }) => {
     });
     return (
         <div class="wrapper">
-            <NavBar />
-            <div ref={(r) => (scrollerRef = r)} class="scroller will-change-transform">
+            <div ref={scrollerRef} class="scroller will-change-transform">
+                <NavBar />
                 <main ref={mainRef} class="mx-auto">
                     {children}
                 </main>

@@ -24,8 +24,8 @@ const CasePage: Component<Props> = () => {
     return (
         <>
             <header class="relative h-screen w-screen z-20 bg-primary-black">
-                <div class="content grid grid-cols-3 justify-items-start p-20 items-center h-full ">
-                    <div style={{ 'grid-column': '1/4' }} class="heading">
+                <div class="content grid grid-cols-3 justify-items-start p-20 max-w-[90vmax] items-center h-full ">
+                    <div style={{ 'grid-column': '1/4' }} class="heading ml-8">
                         <div class="relative overflow-hidden">
                             <p ref={type} class="text-sm align-self-start">
                                 {work.type}
@@ -48,7 +48,7 @@ const CasePage: Component<Props> = () => {
                     class="grid justify-items-start p-20 h-screen w-screen place-content-center items-start"
                 >
                     <span class="text-2xl">Context</span>
-                    <p style={{ 'word-break': 'break-word' }} class="text-xl w-full">
+                    <p style={{ 'word-break': 'break-word' }} class="text-xl w-full max-w-screen-xl">
                         {work.caseStudy.context}
                     </p>
                 </div>
