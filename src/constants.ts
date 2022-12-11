@@ -30,7 +30,7 @@ export const WORKS: Work[] = [
         caseStudy: {
             heading: 'Social Media Next Js Project',
             context:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quibusdam commodi necessitatibus natus sunt nisi. Doloribus aperiam quibusdam magni corrupti sunt provident pariatur doloremque similique eligendi vero excepturi delectus rem eius quod temporibus deserunt eveniet est cumque, aspernatur non ab? Et numquam nobis explicabo temporibus qui cupiditate eum nostrum alias.',
+                'Its 2021 october ish. I was still stuck in india. There was a new variant of coivd at the time called omnicorn or something i forgor. I was pretty bored so i decided to learn how full stack applications are made. I learned so much while making this project. This is probably one of my biggest projects yet',
             challanges: ['challange 1', 'challange 2'],
             images: ['https://media.discordapp.net/attachments/756761009729044540/1051082255856046150/Slide_16_9_-_1.png'],
         },
@@ -49,7 +49,7 @@ export const WORKS: Work[] = [
         caseStudy: {
             heading: 'Steamed',
             context:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quibusdam commodi necessitatibus natus sunt nisi. Doloribus aperiam quibusdam magni corrupti sunt provident pariatur doloremque similique eligendi vero excepturi delectus rem eius quod temporibus deserunt eveniet est cumque, aspernatur non ab? Et numquam nobis explicabo temporibus qui cupiditate eum nostrum alias.',
+                'Before i started this project i had a lot of experience in modding the discord client. We usually do it by getting discords functions through the webpackjsonp/webpackchunk in the window object. When i realised steam uses a CEF (Chromium Embeded Framework) I thought i could somehow do the same thing on steam AND THEN i saw steam uses webpack too SO that gave me even more confidence in starting this project. And the rest is history',
             challanges: ['challange 1', 'challange 2'],
             images: ['https://media.discordapp.net/attachments/756761009729044540/1051082255856046150/Slide_16_9_-_1.png'],
         },
