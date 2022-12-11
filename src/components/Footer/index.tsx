@@ -34,8 +34,8 @@ const Footer = (props: Props) => {
                 <div class="flex flex-col items-center lg:items-start justify-center col-[1 / 3]">
                     <h1 class="text-5xl font-bold">Lets work together</h1>
                     <a
-                        onMouseEnter={() => cursor?.addState('-exclusion -active')}
-                        onMouseLeave={() => cursor?.removeState('-exclusion -active')}
+                        onMouseEnter={() => cursor?.addState('-exclusion -open')}
+                        onMouseLeave={() => cursor?.removeState('-exclusion -open')}
                         href="/"
                         class="font-semibold text-3xl mt-5"
                     >
@@ -49,32 +49,32 @@ const Footer = (props: Props) => {
 
                     <div class="grid grid-cols-2 gap-12">
                         <a
-                            onMouseEnter={() => cursor?.addState('-exclusion -active')}
-                            onMouseLeave={() => cursor?.removeState('-exclusion -active')}
+                            onMouseEnter={() => cursor?.addState('-exclusion -open')}
+                            onMouseLeave={() => cursor?.removeState('-exclusion -open')}
                             target="_blank"
                             href="https://www.github.com/Syncxv"
                         >
                             Github
                         </a>
                         <a
-                            onMouseEnter={() => cursor?.addState('-exclusion -active')}
-                            onMouseLeave={() => cursor?.removeState('-exclusion -active')}
+                            onMouseEnter={() => cursor?.addState('-exclusion -open')}
+                            onMouseLeave={() => cursor?.removeState('-exclusion -open')}
                             target="_blank"
                             href="https://www.github.com/Syncxv"
                         >
                             Github
                         </a>
                         <a
-                            onMouseEnter={() => cursor?.addState('-exclusion -active')}
-                            onMouseLeave={() => cursor?.removeState('-exclusion -active')}
+                            onMouseEnter={() => cursor?.addState('-exclusion -open')}
+                            onMouseLeave={() => cursor?.removeState('-exclusion -open')}
                             target="_blank"
                             href="https://www.github.com/Syncxv"
                         >
                             Github
                         </a>
                         <a
-                            onMouseEnter={() => cursor?.addState('-exclusion -active')}
-                            onMouseLeave={() => cursor?.removeState('-exclusion -active')}
+                            onMouseEnter={() => cursor?.addState('-exclusion -open')}
+                            onMouseLeave={() => cursor?.removeState('-exclusion -open')}
                             target="_blank"
                             href="https://www.github.com/Syncxv"
                         >

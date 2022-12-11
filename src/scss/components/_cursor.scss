@@ -27,53 +27,12 @@
         border-radius: 50%;
         transition: transform 0.3s, opacity 0.1s;
     }
-
-    .-inverse {
-        color: white;
+    &.-inverse {
+        color: #000;
     }
-}
-
-// .pt-cursor {
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     z-index: 250;
-//     color: #8330c2;
-//     contain: layout style size;
-//     pointer-events: none;
-//     -webkit-transition: opacity 0.3s, color 0.4s;
-//     -o-transition: opacity 0.3s, color 0.4s;
-//     -moz-transition: opacity 0.3s, color 0.4s;
-//     transition: opacity 0.3s, color 0.4s;
-// }
-
-// .pt-cursor:before {
-//     content: '';
-//     position: absolute;
-//     top: -24px;
-//     left: -24px;
-//     display: block;
-//     width: 48px;
-//     height: 48px;
-//     -webkit-transform: scale(0.3);
-//     -moz-transform: scale(0.3);
-//     -ms-transform: scale(0.3);
-//     -o-transform: scale(0.3);
-//     transform: scale(0.3);
-//     background: currentColor;
-//     -webkit-border-radius: 50%;
-//     -moz-border-radius: 50%;
-//     border-radius: 50%;
-//     -webkit-transition: opacity 0.1s, -webkit-transform 0.3s;
-//     transition: opacity 0.1s, -webkit-transform 0.3s;
-//     -o-transition: opacity 0.1s, -o-transform 0.3s;
-//     -moz-transition: transform 0.3s, opacity 0.1s, -moz-transform 0.3s;
-//     transition: transform 0.3s, opacity 0.1s;
-//     transition: transform 0.3s, opacity 0.1s, -webkit-transform 0.3s, -moz-transform 0.3s, -o-transform 0.3s;
-// }
-
-.pt-cursor.-inverse {
-    color: #000;
+    &.-open::before {
+        transform: scale(1.7) !important;
+    }
 }
 
 .pt-cursor.-quaternary {
@@ -86,11 +45,11 @@
 
 .pt-cursor.-active:before,
 .pt-navbar.-open .pt-navbar-toggle button.pt-cursor:before {
-    -webkit-transform: scale(0.25);
-    -moz-transform: scale(0.25);
-    -ms-transform: scale(0.25);
-    -o-transform: scale(0.25);
-    transform: scale(0.25);
+    -webkit-transform: scale(0.25) !important;
+    -moz-transform: scale(0.25) !important;
+    -ms-transform: scale(0.25) !important;
+    -o-transform: scale(0.25) !important;
+    transform: scale(0.25) !important;
 }
 
 @supports (mix-blend-mode: exclusion) {
@@ -103,17 +62,17 @@
     }
 }
 
-// .pt-cursor.-pointer:before {
-//     -webkit-transform: scale(0.15);
-//     -moz-transform: scale(0.15);
-//     -ms-transform: scale(0.15);
-//     -o-transform: scale(0.15);
-//     transform: scale(0.15);
-// }
-
 .pt-cursor.-pointer:before {
-    transform: scale(1.7);
+    -webkit-transform: scale(0.15);
+    -moz-transform: scale(0.15);
+    -ms-transform: scale(0.15);
+    -o-transform: scale(0.15);
+    transform: scale(0.15);
 }
+
+// .pt-cursor.-pointer:before {
+//     transform: scale(1.7);
+// }
 
 .pt-cursor.-opaque {
     color: rgba(255, 255, 255, 0.25);
