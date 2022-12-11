@@ -79,13 +79,13 @@ const WorkCard: Component<Props> = ({ name, image, description, path }) => {
                 <img ref={imageRef} style={{ width: 'max(50vw, 400px)', 'aspect-ratio': '1 / 1' }} class="object-cover" src={image} alt="" />
             </div>
             <div class="flex justify-between items-center w-full">
-                <span class="text-[2vmax]">{name}</span>
+                <span class="text-xl">{name}</span>
                 <button onClick={onClick}>
                     <Arrow />
                 </button>
             </div>
 
-            <span class="mt-4 text-[.6vmax]">{description}</span>
+            <span class="mt-4 text-lg">{description}</span>
         </div>
     );
 };
