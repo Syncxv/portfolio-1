@@ -3,6 +3,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Component, onMount } from 'solid-js';
 import { WORKS } from '../../constants';
 import { slideUpOverflow } from '../../utils/slideUpOverflow';
+import Footer from '../Footer';
 import ParallaxSection from '../ParallaxSection';
 
 interface Props {}
@@ -53,6 +54,7 @@ const CasePage: Component<Props> = () => {
                     </p>
                 </div>
             </ParallaxSection>
+            <Footer />
         </>
     );
 };
