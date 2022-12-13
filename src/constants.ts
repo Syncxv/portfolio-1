@@ -65,6 +65,19 @@ export const WORKS: Work[] = [
     },
 
     {
+        id: 'falls',
+        name: 'Falls',
+        type: 'editing',
+        card: {
+            cursorText: 'Youtube',
+            description:
+                'A big project for a team called avail maybe idk. But this project taught me a lot about editing. I made this 2 years ago sooooo have mercy',
+            image: 'https://media.discordapp.net/attachments/756761009729044540/1052178520320770098/Falls_0-30_screenshot.png',
+        },
+        links: [{ label: 'Youtube', url: 'https://www.youtube.com/watch?v=mtsFwfG1EnY' }],
+    },
+
+    {
         id: 'steamed',
         name: 'Steamed',
         caseStudy: {
@@ -86,24 +99,12 @@ export const WORKS: Work[] = [
             images: ['https://media.discordapp.net/attachments/756761009729044540/1051082255856046150/Slide_16_9_-_1.png'],
         },
         card: {
-            description: 'A client mod for the steam desktop client.',
+            description: 'A client mod for the steam desktop client. Still in development and no where near done',
             image: 'https://media.discordapp.net/attachments/748017439496732702/1051128279999991918/steamed.png?width=630&height=630',
-            cursorText: false,
+            cursorText: 'Youtube',
         },
         type: 'development',
-        links: [{ label: 'hehe', url: 'hi-there' }],
-    },
-
-    {
-        id: 'falls',
-        name: 'Falls',
-        type: 'editing',
-        card: {
-            cursorText: 'Youtube',
-            description: 'A big project for a team called avail maybe idk. But this project taught me a lot about editing',
-            image: 'https://media.discordapp.net/attachments/756761009729044540/1052178520320770098/Falls_0-30_screenshot.png',
-        },
-        links: [{ label: 'Youtube', url: 'https://www.youtube.com/watch?v=mtsFwfG1EnY' }],
+        links: [{ label: 'Youtube', url: 'https://youtu.be/CbpOLuDGuSQ' }],
     },
 ];
 

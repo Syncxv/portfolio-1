@@ -13,7 +13,6 @@ const Footer = (props: Props) => {
             onMouseEnter={() => cursor?.inverse()}
             onMouseLeave={() => cursor?.unInverse()}
             onUpdate={(n) => {
-                console.log(n);
                 if (n.progress > 0.96 && !inversed()) {
                     navRef.classList.add('-inverse');
                     setInversed(true);
