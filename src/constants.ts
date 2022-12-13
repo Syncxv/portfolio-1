@@ -1,13 +1,16 @@
 import { RouteDefinition } from '@solidjs/router';
 import { lazy } from 'solid-js';
 
-interface Links {
-    github?: { label: string; url: string };
+export interface Links {
+    label: string;
+    url: string;
 }
-interface Work {
+[];
+
+export interface Work {
     readonly id: string;
     readonly name: string;
-    readonly caseStudy: {
+    readonly caseStudy?: {
         readonly heading: string;
         readonly context: string;
         readonly challanges: {
@@ -20,6 +23,7 @@ interface Work {
     readonly card: {
         readonly image: string;
         readonly description: string;
+        readonly cursorText: string | false;
     };
     readonly video?: string;
     readonly type: 'website' | 'editing' | 'development';
@@ -45,9 +49,19 @@ export const WORKS: Work[] = [
             description:
                 'A Full-Stack Application that is similar to twitter. It uses next js & chakra ui for the frontend and a mongodb, graphql backend',
             image: 'https://media.discordapp.net/attachments/748017439496732702/1050071593453371432/Frame_2.png',
+            cursorText: 'Github',
         },
         type: 'development',
-        links: [{ github: { label: 'hehe', url: 'bruh' } }],
+        links: [
+            {
+                label: 'github',
+                url: 'https://github.com/Syncxv/api_v1',
+            },
+            {
+                label: 'github',
+                url: 'https://github.com/Syncxv/nextjs-social-media-clone',
+            },
+        ],
     },
 
     {
@@ -55,13 +69,17 @@ export const WORKS: Work[] = [
         name: 'Steamed',
         caseStudy: {
             heading: 'Steamed',
-            context:
-                'Before i started this project i had a lot of experience in modding the discord client. We usually do it by getting discords functions through the webpackjsonp/webpackchunk in the window object. When i realised steam uses a CEF (Chromium Embeded Framework) I thought i could somehow do the same thing on steam AND THEN i saw steam uses webpack too SO that gave me even more confidence in starting this project. And the rest is history',
+            context: `Before i started this project i had a lot of experience in modding the discord client. 
+                We usually do it by getting discords functions through the webpackjsonp/webpackchunk in the window object. 
+                When i realised steam uses a CEF (Chromium Embeded Framework) I thought i could somehow do the same thing on steam AND THEN i saw steam uses webpack too SO that gave me even more confidence in starting this project. 
+                And the rest is history`,
             challanges: [
                 {
                     image: 'https://media.discordapp.net/attachments/756761009729044540/1051082255856046150/Slide_16_9_-_1.png',
-                    title: 'HEY DUDE',
-                    content: 'challange 1',
+                    title: 'Figuring out how steam works',
+                    content: `Steam has its own gui written in c++ (which i dont know much about). 
+                    However Steam also uses chromium to render html. They use a CEF (Chromium Embeded Framework) to render the friends, library, store and some other stuff.
+                    After enabling developer tools on the cef i can figure out how the web app was made.`,
                 },
                 { title: 'A CHALLANGE', content: 'challange 2' },
             ],
@@ -70,9 +88,22 @@ export const WORKS: Work[] = [
         card: {
             description: 'A client mod for the steam desktop client.',
             image: 'https://media.discordapp.net/attachments/748017439496732702/1051128279999991918/steamed.png?width=630&height=630',
+            cursorText: false,
         },
         type: 'development',
-        links: [{ github: { label: 'hehe', url: 'hi-there' } }],
+        links: [{ label: 'hehe', url: 'hi-there' }],
+    },
+
+    {
+        id: 'falls',
+        name: 'Falls',
+        type: 'editing',
+        card: {
+            cursorText: 'Youtube',
+            description: 'A big project for a team called avail maybe idk. But this project taught me a lot about editing',
+            image: 'https://media.discordapp.net/attachments/756761009729044540/1052178520320770098/Falls_0-30_screenshot.png',
+        },
+        links: [{ label: 'Youtube', url: 'https://www.youtube.com/watch?v=mtsFwfG1EnY' }],
     },
 ];
 

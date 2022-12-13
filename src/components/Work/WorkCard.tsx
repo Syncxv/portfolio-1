@@ -1,15 +1,12 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Component, createSignal, onCleanup, onMount } from 'solid-js';
-import { animateExit, cursor, isExiting, scroller } from '../Layout';
+import { cursor, isExiting } from '../Layout';
 import Arrow from '../Icons/Arrow';
-import { A, useHref, useNavigate } from '@solidjs/router';
-import AnimatedText from '../AnimatedText';
+import { useNavigate } from '@solidjs/router';
+import { Work } from '../../constants';
 type Props = {
-    name: string;
-    description: string;
-    image: string;
-    path: string;
+    work: Work;
 };
 
 const slideUp = (image: HTMLDivElement, container: HTMLDivElement) => {
@@ -40,7 +37,7 @@ const slideUp = (image: HTMLDivElement, container: HTMLDivElement) => {
     return timeline;
 };
 
-const WorkCard: Component<Props> = ({ name, image, description, path }) => {
+const WorkCard: Component<Props> = ({ work }) => {
     let imageRef!: HTMLImageElement;
     let imageContainer!: HTMLDivElement;
     let card!: HTMLDivElement;
@@ -50,9 +47,10 @@ const WorkCard: Component<Props> = ({ name, image, description, path }) => {
 
     const onClick = () => {
         cursor?.removeText();
-        animateExit().then(() => {
-            naviagte(`/case/${path}`);
-        });
+        work.links.forEach((link) => window.open(link.url, '_blank'));
+        // animateExit().then(() => {
+        //     naviagte(`/case/${path}`);
+        // });
     };
     onMount(() => {
         setTimeline(slideUp(imageRef, imageContainer));
@@ -72,20 +70,26 @@ const WorkCard: Component<Props> = ({ name, image, description, path }) => {
             <div
                 onClick={onClick}
                 ref={imageContainer}
-                onMouseOver={() => !isExiting() && cursor?.setText('Case Study')}
-                onMouseLeave={() => cursor?.removeText()}
+                onMouseOver={() => work.card.cursorText && !isExiting() && cursor?.setText(work.card.cursorText)}
+                onMouseLeave={() => work.card.cursorText && cursor?.removeText()}
                 class="overflow-hidden h-full w-full"
             >
-                <img ref={imageRef} style={{ width: 'max(50vw, 400px)', 'aspect-ratio': '1 / 1' }} class="object-cover" src={image} alt="" />
+                <img
+                    ref={imageRef}
+                    style={{ width: 'max(50vw, 400px)', 'aspect-ratio': '1 / 1' }}
+                    class="object-cover"
+                    src={work.card.image}
+                    alt=""
+                />
             </div>
             <div class="flex justify-between items-center w-full">
-                <span class="text-xl">{name}</span>
+                <span class="text-xl">{work.name}</span>
                 <button onClick={onClick}>
                     <Arrow />
                 </button>
             </div>
 
-            <span class="mt-4 text-lg">{description}</span>
+            <span class="mt-4 text-lg">{work.card.description}</span>
         </div>
     );
 };
