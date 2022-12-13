@@ -106,6 +106,23 @@ export const WORKS: Work[] = [
         type: 'development',
         links: [{ label: 'Youtube', url: 'https://youtu.be/CbpOLuDGuSQ' }],
     },
+
+    {
+        id: 'flutter-todo-app',
+        name: 'Flutter Todo App',
+        type: 'development',
+        card: {
+            description: 'A simple good lookin todo app (i didnt make the desgin). I love flutter ong',
+            cursorText: 'Github',
+            image: 'https://camo.githubusercontent.com/44c104ce44f4f22162bc0c87b9b554017741f734254666ffd6653fc400c0c38a/68747470733a2f2f692e696d6775722e636f6d2f476d774c6135472e676966',
+        },
+        links: [
+            {
+                label: 'Github',
+                url: 'https://github.com/Syncxv/flutter-todo-app',
+            },
+        ],
+    },
 ];
 
 export const routes: RouteDefinition[] = [
