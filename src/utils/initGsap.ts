@@ -3,18 +3,10 @@ import SoftScrollPlugin from './SoftScroll';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { isMobile } from './isMobile';
-import { setTimelines } from '../components/Layout';
 
 export const initGsap = (scrollerRef: HTMLDivElement) => {
     console.log('INTIALIZING GSAP AND SCROLLBAR');
     gsap.registerPlugin(ScrollTrigger);
-    let oldTimeline = gsap.timeline;
-    gsap.timeline = (vars: gsap.TimelineVars | undefined) => {
-        let timeline = oldTimeline(vars);
-        console.log('GOT NEW TIMELINE', timeline);
-        setTimelines((prev) => [...prev, timeline]);
-        return timeline;
-    };
     (window as any).ScrollTrigger = ScrollTrigger;
     if (!isMobile()) Scrollbar.use(SoftScrollPlugin);
     const scroller = ((window as any).scroller = Scrollbar.init(scrollerRef, {

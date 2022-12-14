@@ -5,6 +5,7 @@ import { cursor, isExiting } from '../Layout';
 import Arrow from '../Icons/Arrow';
 import { useNavigate } from '@solidjs/router';
 import { Work } from '../../constants';
+import { waitUntilLoaded } from '../../utils/waitUntilLoaded';
 type Props = {
     work: Work;
 };
@@ -52,7 +53,8 @@ const WorkCard: Component<Props> = ({ work }) => {
         //     naviagte(`/case/${path}`);
         // });
     };
-    onMount(() => {
+    onMount(async () => {
+        await waitUntilLoaded();
         setTimeline(slideUp(imageRef, imageContainer));
         setScrollTigger(
             ScrollTrigger.create({
