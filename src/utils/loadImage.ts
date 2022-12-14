@@ -3,7 +3,7 @@ export const loadImage = (image: string) => {
         const loadImg = new Image();
         loadImg.src = image;
         // wait 2 seconds to simulate loading time
-        loadImg.onload = () => resolve(image);
+        loadImg.onload = () => setTimeout(() => resolve(image), 2000);
 
         loadImg.onerror = (err) => reject(err);
     });

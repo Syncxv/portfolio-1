@@ -1,5 +1,6 @@
 import { Component, createSignal, onCleanup, onMount } from 'solid-js';
 import gsap from 'gsap';
+import { waitUntilLoaded } from '../../utils/waitUntilLoaded';
 type Props = {};
 
 const Hero: Component<Props> = (props) => {
@@ -7,7 +8,9 @@ const Hero: Component<Props> = (props) => {
     let heading1: HTMLDivElement | undefined;
     let heading2: HTMLDivElement | undefined;
     let [timeLine, setTimeLine] = createSignal<gsap.core.Timeline>();
-    onMount(() => {
+    onMount(async () => {
+        await waitUntilLoaded();
+        console.log('CREATING TIMELINE');
         let timeline = setTimeLine(gsap.timeline());
         let all = [firstRef, heading1];
         timeline.set(all, {
