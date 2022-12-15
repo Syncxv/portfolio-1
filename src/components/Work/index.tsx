@@ -1,17 +1,14 @@
-import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Component, For, onMount } from 'solid-js';
 import { WORKS } from '../../constants';
 import { slideUpOverflow } from '../../utils/slideUpOverflow';
-import { waitUntilLoaded } from '../../utils/waitUntilLoaded';
 import WorkCard from './WorkCard';
 
-interface Props {}
+interface Props { }
 
-const WorkSection: Component<Props> = ({}) => {
+const WorkSection: Component<Props> = ({ }) => {
     let heading!: HTMLDivElement;
     onMount(async () => {
-        await waitUntilLoaded();
         ScrollTrigger.create({
             trigger: heading,
             animation: slideUpOverflow(heading, { duration: 1.4, stagger: 0 }),

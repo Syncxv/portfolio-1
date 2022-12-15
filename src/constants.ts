@@ -14,6 +14,7 @@ export interface Work {
         readonly heading: string;
         readonly context: string;
         readonly challanges: {
+            video?: string;
             image?: string;
             title: string;
             content: string;
@@ -21,7 +22,8 @@ export interface Work {
         readonly images: string[];
     };
     readonly card: {
-        readonly image: string;
+        readonly video?: string
+        readonly image?: string;
         readonly description: string;
         readonly cursorText: string | false;
     };
@@ -72,7 +74,7 @@ export const WORKS: Work[] = [
             cursorText: 'Youtube',
             description:
                 'A big project for a team called avail maybe idk. But this project taught me a lot about editing. I made this 2 years ago sooooo have mercy',
-            image: 'https://media.discordapp.net/attachments/756761009729044540/1052178520320770098/Falls_0-30_screenshot.png',
+            video: '/falls.webm',
         },
         links: [{ label: 'Youtube', url: 'https://www.youtube.com/watch?v=mtsFwfG1EnY' }],
     },

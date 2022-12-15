@@ -39,7 +39,7 @@ const slideUp = (image: HTMLDivElement, container: HTMLDivElement) => {
 };
 
 const WorkCard: Component<Props> = ({ work }) => {
-    let imageRef!: HTMLImageElement;
+    let imageRef!: any;
     let imageContainer!: HTMLDivElement;
     let card!: HTMLDivElement;
     const [timeline, setTimeline] = createSignal<gsap.core.Timeline>();
@@ -72,17 +72,34 @@ const WorkCard: Component<Props> = ({ work }) => {
             <div
                 onClick={onClick}
                 ref={imageContainer}
-                onMouseOver={() => work.card.cursorText && !isExiting() && cursor?.setText(work.card.cursorText)}
-                onMouseLeave={() => work.card.cursorText && cursor?.removeText()}
+                onMouseOver={() => {
+                    work.card.cursorText && !isExiting() && cursor?.setText(work.card.cursorText);
+                    (work.card.video && imageRef.play())
+                }}
+                onMouseLeave={() => { work.card.cursorText && cursor?.removeText(); (work.card.video && imageRef.pause()) }}
                 class="overflow-hidden h-full w-full"
             >
-                <img
-                    ref={imageRef}
-                    style={{ width: 'max(50vw, 400px)', 'aspect-ratio': '1 / 1' }}
-                    class="object-cover"
-                    src={work.card.image}
-                    alt=""
-                />
+                {work.card.image != null ?
+                    <img
+                        ref={imageRef}
+                        style={{ width: 'max(50vw, 400px)', 'aspect-ratio': '1 / 1' }}
+                        class="object-cover"
+                        src={work.card.image}
+                        alt=""
+                    />
+                    :
+                    <video
+                        ref={imageRef}
+                        style={{ width: 'max(50vw, 400px)', 'aspect-ratio': '1 / 1' }}
+                        class="object-none"
+                        loop
+                        muted
+                    >
+                        <source
+                            src={work.card.video} type="video/webm" />
+                    </video>
+                }
+
             </div>
             <div class="flex justify-between items-center w-full">
                 <span class="text-xl">{work.name}</span>

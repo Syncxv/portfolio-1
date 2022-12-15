@@ -9,7 +9,7 @@ import Cursor from './cursor';
 import { animateLoaderExit, Loader } from './Loader/Loader';
 import NavBar from './NavBar';
 
-interface Props {}
+interface Props { }
 
 export let scroller: Scrollbar;
 export let cursor: Cursor | null;
@@ -17,7 +17,6 @@ export let mainRef!: HTMLElement;
 
 export const [isExiting, setExiting] = createSignal(false);
 
-export const [isLoading, setLoading] = createSignal<boolean>(true);
 
 export const animateExit = () => {
     return new Promise((res) => {
@@ -40,9 +39,6 @@ export const animateExit = () => {
 const Layout: ParentComponent<Props> = ({ children }) => {
     let scrollerRef!: HTMLDivElement;
     onMount(() => {
-        Promise.all(WORKS.map((w) => loadImage(w.card.image)))
-            .then(() => animateLoaderExit().then(() => (setLoading(false), setTimeout(() => ScrollTrigger.refresh(true), 20))))
-            .catch((err) => console.error('failed loading iamges', err));
         (window as any).scroller = scroller = initGsap(scrollerRef);
         (window as any).cursor = cursor = createCurosr();
     });
@@ -51,9 +47,7 @@ const Layout: ParentComponent<Props> = ({ children }) => {
             <NavBar />
             <div ref={scrollerRef} class="scroller will-change-transform">
                 <main ref={mainRef} class="mx-auto">
-                    <Show when={!isLoading()} fallback={<Loader />}>
-                        {children}
-                    </Show>
+                    {children}
                 </main>
             </div>
         </div>
