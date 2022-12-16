@@ -61,3 +61,14 @@ section {
 .object-none {
     object-fit: none;
 }
+
+.hiden {
+    opaciy: 0
+}
+
+@media screen and (min-width: 3840px) {
+//For 4K Displays (Ultra HD)
+   .hey {
+        width: 3810px;
+    }
+}

@@ -75,6 +75,7 @@ export const WORKS: Work[] = [
             description:
                 'A big project for a team called avail maybe idk. But this project taught me a lot about editing. I made this 2 years ago sooooo have mercy',
             video: '/falls.webm',
+            image: 'https://media.discordapp.net/attachments/756761009729044540/1052178520320770098/Falls_0-30_screenshot.png'
         },
         links: [{ label: 'Youtube', url: 'https://www.youtube.com/watch?v=mtsFwfG1EnY' }],
     },

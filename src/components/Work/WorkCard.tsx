@@ -6,6 +6,7 @@ import Arrow from '../Icons/Arrow';
 import { useNavigate } from '@solidjs/router';
 import { Work } from '../../constants';
 import { waitUntilLoaded } from '../../utils/waitUntilLoaded';
+import { isMobile } from '../../utils/isMobile';
 type Props = {
     work: Work;
 };
@@ -39,7 +40,8 @@ const slideUp = (image: HTMLDivElement, container: HTMLDivElement) => {
 };
 
 const WorkCard: Component<Props> = ({ work }) => {
-    let imageRef!: any;
+    let imageRef!: HTMLImageElement;
+    let videoRef!: HTMLVideoElement
     let imageContainer!: HTMLDivElement;
     let card!: HTMLDivElement;
     const [timeline, setTimeline] = createSignal<gsap.core.Timeline>();
@@ -68,30 +70,40 @@ const WorkCard: Component<Props> = ({ work }) => {
     onCleanup(() => scrollTrigger()?.kill());
 
     return (
-        <div ref={card} class="work-card w-[33vmax] aspect-square flex flex-col justify-center items-start gap-4">
+        <div ref={card} id={work.id} class="work-card w-[33vmax] aspect-square flex flex-col justify-center items-start gap-4">
             <div
                 onClick={onClick}
                 ref={imageContainer}
                 onMouseOver={() => {
                     work.card.cursorText && !isExiting() && cursor?.setText(work.card.cursorText);
-                    (work.card.video && imageRef.play())
+                    if (videoRef && !isMobile()) {
+                        imageRef.classList.add('hidden')
+                        videoRef.classList.remove('hidden')
+                        work.card.video && videoRef.play()
+                    }
                 }}
-                onMouseLeave={() => { work.card.cursorText && cursor?.removeText(); (work.card.video && imageRef.pause()) }}
+                onMouseLeave={() => {
+                    work.card.cursorText && cursor?.removeText();
+                    if (videoRef && !isMobile()) {
+                        imageRef.classList.remove('hidden')
+                        videoRef.classList.add('hidden')
+                        work.card.video && videoRef.pause();
+                    }
+                }}
                 class="overflow-hidden h-full w-full"
             >
-                {work.card.image != null ?
-                    <img
-                        ref={imageRef}
-                        style={{ width: 'max(50vw, 400px)', 'aspect-ratio': '1 / 1' }}
-                        class="object-cover"
-                        src={work.card.image}
-                        alt=""
-                    />
-                    :
+                <img
+                    ref={imageRef}
+                    style={{ width: 'max(50vw, 400px)', 'aspect-ratio': '1 / 1' }}
+                    class="object-cover"
+                    src={work.card.image}
+                    alt=""
+                />
+                {work.card.video != null &&
                     <video
-                        ref={imageRef}
+                        ref={videoRef}
                         style={{ width: 'max(50vw, 400px)', 'aspect-ratio': '1 / 1' }}
-                        class="object-none"
+                        class="object-none hidden"
                         loop
                         muted
                     >
