@@ -1,4 +1,4 @@
-.pt-cursor {
+.hehe-cursor {
     position: fixed;
     top: 0;
     left: 0;
@@ -35,16 +35,16 @@
     }
 }
 
-.pt-cursor.-quaternary {
+.hehe-cursor.-quaternary {
     color: #c9ffc5;
 }
 
-.pt-cursor.-quinary {
+.hehe-cursor.-quinary {
     color: #ccbaff;
 }
 
-.pt-cursor.-active:before,
-.pt-navbar.-open .pt-navbar-toggle button.pt-cursor:before {
+.hehe-cursor.-active:before,
+.hehe-navbar.-open .hehe-navbar-toggle button.hehe-cursor:before {
     -webkit-transform: scale(0.25) !important;
     -moz-transform: scale(0.25) !important;
     -ms-transform: scale(0.25) !important;
@@ -53,16 +53,16 @@
 }
 
 @supports (mix-blend-mode: exclusion) {
-    .pt-cursor.-exclusion {
+    .hehe-cursor.-exclusion {
         mix-blend-mode: exclusion;
     }
 
-    .pt-cursor.-exclusion:before {
+    .hehe-cursor.-exclusion:before {
         background: #fff;
     }
 }
 
-.pt-cursor.-pointer:before {
+.hehe-cursor.-pointer:before {
     -webkit-transform: scale(0.15);
     -moz-transform: scale(0.15);
     -ms-transform: scale(0.15);
@@ -70,15 +70,15 @@
     transform: scale(0.15);
 }
 
-// .pt-cursor.-pointer:before {
+// .hehe-cursor.-pointer:before {
 //     transform: scale(1.7);
 // }
 
-.pt-cursor.-opaque {
+.hehe-cursor.-opaque {
     color: rgba(255, 255, 255, 0.25);
 }
 
-.pt-cursor.-opaque:before {
+.hehe-cursor.-opaque:before {
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
@@ -86,8 +86,8 @@
     transform: scale(1.1);
 }
 
-.pt-cursor.-opaque.-active:before,
-.pt-navbar.-open .pt-navbar-toggle button.pt-cursor.-opaque:before {
+.hehe-cursor.-opaque.-active:before,
+.hehe-navbar.-open .hehe-navbar-toggle button.hehe-cursor.-opaque:before {
     -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
     -ms-transform: scale(1.2);
@@ -95,7 +95,7 @@
     transform: scale(1.2);
 }
 
-.pt-cursor.-lg:before {
+.hehe-cursor.-lg:before {
     -webkit-transform: scale(1.05);
     -moz-transform: scale(1.05);
     -ms-transform: scale(1.05);
@@ -103,8 +103,8 @@
     transform: scale(1.05);
 }
 
-.pt-cursor.-lg.-active:before,
-.pt-navbar.-open .pt-navbar-toggle button.pt-cursor.-lg:before {
+.hehe-cursor.-lg.-active:before,
+.hehe-navbar.-open .hehe-navbar-toggle button.hehe-cursor.-lg:before {
     -webkit-transform: scale(1.15);
     -moz-transform: scale(1.15);
     -ms-transform: scale(1.15);
@@ -112,7 +112,7 @@
     transform: scale(1.15);
 }
 
-.pt-cursor.-text:before {
+.hehe-cursor.-text:before {
     opacity: 0.85;
     -webkit-transform: scale(1.7);
     -moz-transform: scale(1.7);
@@ -121,8 +121,8 @@
     transform: scale(1.7);
 }
 
-.pt-cursor.-text.-active:before,
-.pt-navbar.-open .pt-navbar-toggle button.pt-cursor.-text:before {
+.hehe-cursor.-text.-active:before,
+.hehe-navbar.-open .hehe-navbar-toggle button.hehe-cursor.-text:before {
     -webkit-transform: scale(1.6);
     -moz-transform: scale(1.6);
     -ms-transform: scale(1.6);
@@ -134,7 +134,7 @@
     transition-duration: 0.2s;
 }
 
-.pt-cursor.-icon:before {
+.hehe-cursor.-icon:before {
     -webkit-transform: scale(1.5);
     -moz-transform: scale(1.5);
     -ms-transform: scale(1.5);
@@ -142,8 +142,8 @@
     transform: scale(1.5);
 }
 
-.pt-cursor.-icon.-active:before,
-.pt-navbar.-open .pt-navbar-toggle button.pt-cursor.-icon:before {
+.hehe-cursor.-icon.-active:before,
+.hehe-navbar.-open .hehe-navbar-toggle button.hehe-cursor.-icon:before {
     -webkit-transform: scale(1.4);
     -moz-transform: scale(1.4);
     -ms-transform: scale(1.4);
@@ -151,7 +151,7 @@
     transform: scale(1.4);
 }
 
-.pt-cursor.-hidden:before {
+.hehe-cursor.-hidden:before {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     -ms-transform: scale(0);
@@ -159,7 +159,7 @@
     transform: scale(0);
 }
 
-.pt-cursor-text {
+.hehe-cursor-text {
     position: absolute;
     top: -18px;
     left: -18px;
@@ -198,8 +198,8 @@
     transition: opacity 0.4s, transform 0.3s, -webkit-transform 0.3s, -moz-transform 0.3s, -o-transform 0.3s;
 }
 
-.pt-cursor.-icon .pt-cursor-text,
-.pt-cursor.-text .pt-cursor-text {
+.hehe-cursor.-icon .hehe-cursor-text,
+.hehe-cursor.-text .hehe-cursor-text {
     opacity: 1;
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -208,15 +208,15 @@
     transform: scale(1);
 }
 
-.pt-cursor-media {
+.hehe-cursor-media {
     position: absolute;
     width: 400px;
     height: 400px;
     margin: -200px 0 0 -200px;
 }
 
-.pt-cursor-media img,
-.pt-cursor-media video {
+.hehe-cursor-media img,
+.hehe-cursor-media video {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -231,8 +231,8 @@
 }
 
 @supports ((-o-object-fit: cover) or (object-fit: cover)) {
-    .pt-cursor-media img,
-    .pt-cursor-media video {
+    .hehe-cursor-media img,
+    .hehe-cursor-media video {
         position: static;
         width: 100%;
         height: 100%;
@@ -244,7 +244,7 @@
     }
 }
 
-.pt-cursor-media-box {
+.hehe-cursor-media-box {
     position: relative;
     width: 100%;
     height: 100%;
@@ -265,7 +265,7 @@
     transition: transform 0.35s, opacity 0.2s 0.2s, -webkit-transform 0.35s, -moz-transform 0.35s, -o-transform 0.35s;
 }
 
-.pt-cursor.-media .pt-cursor-media-box {
+.hehe-cursor.-media .hehe-cursor-media-box {
     opacity: 1;
     -webkit-transform: scale(0.696);
     -moz-transform: scale(0.696);
