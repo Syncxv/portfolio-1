@@ -65,12 +65,12 @@ const Hero: Component<Props> = (props) => {
                         </p>
                     </div>
                     <div class="relative overflow-hidden">
-                        <h1 ref={heading1} class="text-2xl lg:text-8xl">
+                        <h1 ref={heading1} class="text-4xl lg:text-8xl">
                             Video Editor
                         </h1>
                     </div>
                     <div class="relative overflow-hidden">
-                        <h1 ref={heading2} class="text-2xl lg:text-8xl lg:ml-16 ">
+                        <h1 ref={heading2} class="text-4xl lg:text-8xl lg:ml-16 ">
                             & Developer
                         </h1>
                     </div>

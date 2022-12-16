@@ -116,7 +116,7 @@ export const WORKS: Work[] = [
         card: {
             description: 'A simple good lookin todo app (i didnt make the desgin). I love flutter ong',
             cursorText: 'Github',
-            image: 'https://camo.githubusercontent.com/44c104ce44f4f22162bc0c87b9b554017741f734254666ffd6653fc400c0c38a/68747470733a2f2f692e696d6775722e636f6d2f476d774c6135472e676966',
+            image: 'https://cdn.dribbble.com/users/878428/screenshots/15794848/media/ef99358faf464f78fa7654d8e72bc997.png?compress=1',
         },
         links: [
             {

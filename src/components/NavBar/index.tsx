@@ -14,11 +14,12 @@ const NavBar: Component<Props> = ({ className = ' ' }) => {
             scroller.addListener((n) => {
                 if (location.pathname !== '/') return;
                 const percent = (n.offset.y / scroller.size.content.height) * 100;
-                if (percent > 69.9 && !inversed()) {
+                console.log(percent)
+                if (percent > 79.1 && !inversed()) {
                     navRef.classList.add('-inverse');
                     setInversed(true);
                 }
-                if (percent < 69.9 && inversed()) {
+                if (percent < 79.1 && inversed()) {
                     navRef.classList.remove('-inverse');
                     setInversed(false);
                 }
