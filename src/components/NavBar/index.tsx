@@ -1,5 +1,5 @@
 import { useNavigate } from '@solidjs/router';
-import { Component, createSignal, onMount } from 'solid-js';
+import { Component, createSignal, onMount, ParentComponent } from 'solid-js';
 import { isMobile } from '../../utils/isMobile';
 import { animateExit, cursor, scroller } from '../Layout';
 type Props = { className?: string };
@@ -14,7 +14,7 @@ const NavBar: Component<Props> = ({ className = ' ' }) => {
             scroller.addListener((n) => {
                 if (location.pathname !== '/') return;
                 const percent = (n.offset.y / scroller.size.content.height) * 100;
-                console.log(percent)
+                console.log(percent);
                 if (percent > 79.1 && !inversed()) {
                     navRef.classList.add('-inverse');
                     setInversed(true);
@@ -49,28 +49,12 @@ const NavBar: Component<Props> = ({ className = ' ' }) => {
                 </div>
 
                 <ul class="flex items-center justify-center gap-4">
-                    <button
-                        onMouseEnter={() => cursor?.addState('-exclusion -open')}
-                        onMouseLeave={() => cursor?.removeState('-exclusion -open')}
-                        onClick={() =>
-                            location.pathname === '/'
-                                ? scroller.scrollIntoView(document.getElementById('work')!)
-                                : animateExit().then(() => navigate('/'))
-                        }
-                    >
+                    <NavLink type="id" elemId="work">
                         Work
-                    </button>
-                    <button
-                        onMouseEnter={() => cursor?.addState('-exclusion -open')}
-                        onMouseLeave={() => cursor?.removeState('-exclusion -open')}
-                        onClick={() =>
-                            location.pathname === '/'
-                                ? scroller.scrollIntoView(document.getElementById('contact')!)
-                                : animateExit().then(() => navigate('/'))
-                        }
-                    >
+                    </NavLink>
+                    <NavLink type="id" elemId="contact">
                         Contact
-                    </button>
+                    </NavLink>
                 </ul>
             </div>
         </>
@@ -78,3 +62,43 @@ const NavBar: Component<Props> = ({ className = ' ' }) => {
 };
 
 export default NavBar;
+
+interface NavLinkId {
+    type: 'id';
+    elemId: string;
+}
+
+interface NavLinkName {
+    type: 'name';
+    path: string;
+}
+
+type NavLinkProps = NavLinkId | NavLinkName;
+
+function isNavId(example: NavLinkProps): example is NavLinkId {
+    return example.type === 'id';
+}
+
+const NavLink: ParentComponent<NavLinkProps> = ({ children, ...props }) => {
+    const navigate = useNavigate();
+    if (isNavId(props)) {
+        return (
+            <button
+                onMouseEnter={() => cursor?.addState('-exclusion -open')}
+                onMouseLeave={() => cursor?.removeState('-exclusion -open')}
+                onClick={() =>
+                    location.pathname === '/'
+                        ? scroller.scrollIntoView(document.getElementById(props.elemId)!)
+                        : animateExit().then(() => navigate('/'))
+                }
+            >
+                {children}
+            </button>
+        );
+    }
+    return (
+        <a href={props.path} onMouseEnter={() => cursor?.addState('-exclusion -open')} onMouseLeave={() => cursor?.removeState('-exclusion -open')}>
+            {children}
+        </a>
+    );
+};
