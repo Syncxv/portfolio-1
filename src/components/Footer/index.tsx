@@ -10,8 +10,8 @@ const Footer = (props: Props) => {
     let [inversed, setInversed] = createSignal(false);
     return (
         <ParallaxSection
-            onMouseEnter={() => cursor?.inverse()}
-            onMouseLeave={() => cursor?.unInverse()}
+            onMouseOver={() => cursor?.inverse()}
+            onMouseOut={() => cursor?.unInverse()}
             onUpdate={(n) => {
                 if (n.progress > 0.96 && !inversed()) {
                     navRef.classList.add('-inverse');
@@ -42,7 +42,7 @@ const Footer = (props: Props) => {
                     </a>
                 </div>
                 <div class="contact-grid flex flex-col mt-20 lg:grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="email font-bold text-2xl">
+                    <div class="email font-bold text-xl lg:text-2xl">
                         <p>aruldevarackal1@gmail.com</p>
                     </div>
 

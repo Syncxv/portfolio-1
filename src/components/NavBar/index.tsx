@@ -27,37 +27,35 @@ const NavBar: Component<Props> = ({ className = ' ' }) => {
         }
     });
     return (
-        <>
-            <div
-                ref={navRef}
-                style={{ 'max-width': 'min(2000px, 90vmax)' }}
-                class={`navbar flex justify-between py-5 absolute top-0 right-0 left-0 bg-transparent w-screen z-50 px-4 transition-colors duration-200 ease-out mx-auto ${className}`}
-            >
-                <div class="home">
-                    <button
-                        onMouseEnter={() => cursor?.addState('-exclusion -open')}
-                        onMouseLeave={() => cursor?.removeState('-exclusion -open')}
-                        onClick={() =>
-                            location.pathname === '/'
-                                ? scroller.scrollIntoView(document.getElementById('home')!)
-                                : animateExit().then(() => navigate('/'))
-                        }
-                        class="mix-blend-difference"
-                    >
-                        Home
-                    </button>
-                </div>
-
-                <ul class="flex items-center justify-center gap-4">
-                    <NavLink type="id" elemId="work">
-                        Work
-                    </NavLink>
-                    <NavLink type="id" elemId="contact">
-                        Contact
-                    </NavLink>
-                </ul>
+        <nav
+            ref={navRef}
+            style={{ 'max-width': 'min(2000px, 90vmax)' }}
+            class={`navbar pointer-events-none flex justify-between py-5 absolute top-0 right-0 left-0 bg-transparent w-screen z-50 px-4 transition-colors duration-200 ease-out mx-auto ${className}`}
+        >
+            <div class="home">
+                <button
+                    onMouseEnter={() => cursor?.addState('-exclusion -open')}
+                    onMouseLeave={() => cursor?.removeState('-exclusion -open')}
+                    onClick={() =>
+                        location.pathname === '/'
+                            ? scroller.scrollIntoView(document.getElementById('home')!)
+                            : animateExit().then(() => navigate('/'))
+                    }
+                    class="mix-blend-difference pointer-events-auto"
+                >
+                    Home
+                </button>
             </div>
-        </>
+
+            <ul class="flex items-center justify-center gap-4 pointer-events-auto">
+                <NavLink type="id" elemId="work">
+                    Work
+                </NavLink>
+                <NavLink type="id" elemId="contact">
+                    Contact
+                </NavLink>
+            </ul>
+        </nav>
     );
 };
 
