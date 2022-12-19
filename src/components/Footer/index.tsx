@@ -1,4 +1,4 @@
-import { createSignal } from 'solid-js';
+import { createSignal, ParentComponent } from 'solid-js';
 import { cursor } from '../Layout';
 import { navRef } from '../NavBar';
 import ParallaxSection from '../ParallaxSection';
@@ -42,44 +42,14 @@ const Footer = (props: Props) => {
                     </a>
                 </div>
                 <div class="contact-grid flex flex-col mt-20 lg:grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="email font-bold text-xl lg:text-2xl">
-                        <p>aruldevarackal1@gmail.com</p>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-12">
-                        <a
-                            onMouseEnter={() => cursor?.addState('-exclusion -open')}
-                            onMouseLeave={() => cursor?.removeState('-exclusion -open')}
-                            target="_blank"
-                            href="https://www.github.com/Syncxv"
-                        >
-                            Github
-                        </a>
-                        <a
-                            onMouseEnter={() => cursor?.addState('-exclusion -open')}
-                            onMouseLeave={() => cursor?.removeState('-exclusion -open')}
-                            target="_blank"
-                            href="https://www.github.com/Syncxv"
-                        >
-                            Github
-                        </a>
-                        <a
-                            onMouseEnter={() => cursor?.addState('-exclusion -open')}
-                            onMouseLeave={() => cursor?.removeState('-exclusion -open')}
-                            target="_blank"
-                            href="https://www.github.com/Syncxv"
-                        >
-                            Github
-                        </a>
-                        <a
-                            onMouseEnter={() => cursor?.addState('-exclusion -open')}
-                            onMouseLeave={() => cursor?.removeState('-exclusion -open')}
-                            target="_blank"
-                            href="https://www.github.com/Syncxv"
-                        >
-                            Github
-                        </a>
-                    </div>
+                    <FooterLink href="https://www.github.com/Syncxv">Github</FooterLink>
+                    <FooterLink href="https://www.youtube.com/@Sync-Edits">Youtube</FooterLink>
+                    <p onMouseEnter={() => cursor?.addState('-exclusion -open')} class="font-bold">
+                        aruldevarackal1@gmail.com
+                    </p>
+                    <p onMouseLeave={() => cursor?.removeState('-exclusion -open')} class="font-bold">
+                        Aria#8171
+                    </p>
                 </div>
             </div>
         </ParallaxSection>
@@ -87,3 +57,16 @@ const Footer = (props: Props) => {
 };
 
 export default Footer;
+
+const FooterLink: ParentComponent<{ href: string }> = ({ children, href }) => {
+    return (
+        <a
+            onMouseEnter={() => cursor?.addState('-exclusion -open')}
+            onMouseLeave={() => cursor?.removeState('-exclusion -open')}
+            target="_blank"
+            href={href}
+        >
+            {children}
+        </a>
+    );
+};
