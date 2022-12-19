@@ -61,7 +61,7 @@ const Hero: Component<Props> = (props) => {
                 <div class="wrapper absolute top-1/3 lg:block flex flex-col items-center justify-center">
                     <div class="self-start   lg:ml-0 relative overflow-hidden">
                         <p ref={firstRef} class="text-sm lg:text-lg">
-                            Aruldev Arackal
+                            Aruldev
                         </p>
                     </div>
                     <div class="relative overflow-hidden">
