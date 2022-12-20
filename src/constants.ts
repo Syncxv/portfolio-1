@@ -169,4 +169,6 @@ export const Skills = [
     { name: 'Premier Pro' },
     { name: 'Photoshop' },
     { name: 'Figma' },
+    { name: 'Java' },
+    { name: 'Svelte' },
 ];
