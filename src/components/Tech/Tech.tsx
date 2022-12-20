@@ -46,7 +46,7 @@ export const Tech: Component<Props> = () => {
                         </p>
                     </div>
                     <div ref={coolRef} class="myCanvasContainer">
-                        <canvas height={600} width={window.innerWidth} id="myCanvas"></canvas>
+                        <canvas height={isMobile() ? 350 : 600} width={isMobile() ? 350 : 600} id="myCanvas"></canvas>
                     </div>
                 </div>
             </section>
