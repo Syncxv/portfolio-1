@@ -9,14 +9,13 @@ import Cursor from './cursor';
 import { animateLoaderExit, Loader } from './Loader/Loader';
 import NavBar from './NavBar';
 
-interface Props { }
+interface Props {}
 
 export let scroller: Scrollbar;
 export let cursor: Cursor | null;
 export let mainRef!: HTMLElement;
 
 export const [isExiting, setExiting] = createSignal(false);
-
 
 export const animateExit = () => {
     return new Promise((res) => {
@@ -43,7 +42,7 @@ const Layout: ParentComponent<Props> = ({ children }) => {
         (window as any).cursor = cursor = createCurosr();
     });
     return (
-        <div class="wrapper">
+        <div class="wrapper text-light-bg-light-200">
             <NavBar />
             <div ref={scrollerRef} class="scroller will-change-transform">
                 <main ref={mainRef} class="mx-auto">

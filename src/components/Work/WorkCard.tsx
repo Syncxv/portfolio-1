@@ -120,7 +120,7 @@ const WorkCard: Component<Props> = ({ work }) => {
                 </button>
             </div>
 
-            <span class="mt-4 text-lg">{work.card.description}</span>
+            <span class="mt-4 text-lg text-gray-300">{work.card.description}</span>
         </div>
     );
 };
