@@ -166,7 +166,7 @@ export const Skills = [
 
     { name: 'Python' },
     { name: 'Framer Motion' },
-    { name: 'Postgres' },
+    { name: 'PostgreSQL' },
     { name: 'MongoDB' },
     { name: 'After Effects' },
     { name: 'Premier Pro' },
