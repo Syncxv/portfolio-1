@@ -31,7 +31,7 @@ export const Tech: Component<Props> = () => {
         });
     });
     return (
-        <section class="bg-primary-black">
+        <section class="bg-primary-black" style={{ height: 'fit-content' }}>
             <div class="flex flex-col lg:flex-row items-center justify-around mt-24 mx-auto max-w-[90vw] ">
                 <div class="idkman p-10  max-w-[65ch]">
                     <h3 class="text-2xl mb-8 font-bold">I love learnin new things</h3>
