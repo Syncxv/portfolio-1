@@ -145,9 +145,12 @@ export interface Skill {
 }
 
 export const Skills = [
-    { name: 'tailwind' },
+    { name: 'Tailwind' },
     { name: 'GSAP' },
     { name: 'npm' },
+    { name: 'pnpm' },
+    { name: 'yarn' },
+    { name: 'Linux' },
     { name: 'Git' },
     { name: 'Dart' },
     { name: 'Flutter' },
@@ -171,4 +174,9 @@ export const Skills = [
     { name: 'Figma' },
     { name: 'Java' },
     { name: 'Svelte' },
+    { name: 'Next JS 12/13' },
+    { name: 'NodeJS' },
+    { name: 'Docker' },
+
+    { name: 'Redux' },
 ];
