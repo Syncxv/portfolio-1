@@ -178,5 +178,7 @@ export const Skills = [
     { name: 'NodeJS' },
     { name: 'Docker' },
 
+    { name: 'Deno' },
+    { name: 'Bun' },
     { name: 'Redux' },
 ];
