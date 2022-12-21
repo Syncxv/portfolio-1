@@ -30,7 +30,7 @@ const NavBar: Component<Props> = ({ className = ' ' }) => {
         <nav
             ref={navRef}
             style={{ 'max-width': 'min(2000px, 90vmax)' }}
-            class={`navbar pointer-events-none flex justify-between py-5 absolute top-0 right-0 left-0 bg-transparent w-screen z-50 px-4 transition-colors duration-200 ease-out mx-auto ${className}`}
+            class={`navbar mix-blend-difference pointer-events-none flex justify-between py-5 absolute top-0 right-0 left-0 bg-transparent w-screen z-50 px-4 transition-colors duration-200 ease-out mx-auto ${className}`}
         >
             <div class="home">
                 <button
