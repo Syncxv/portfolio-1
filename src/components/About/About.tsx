@@ -1,11 +1,42 @@
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Component, For, onCleanup, onMount } from 'solid-js';
 import { Skills } from '../../constants';
 import { clamp } from '../../utils/clamp';
 import { isMobile } from '../../utils/isMobile';
+import { slideUpOverflow } from '../../utils/slideUpOverflow';
+import { SplitTextJS } from '../../utils/SplitTextJs';
 interface Props {}
-
 let coolRef!: HTMLCanvasElement;
-let resizeFunc = () => (coolRef.width = clamp(window.innerWidth * 0.9, 350, 600));
+
+let pRef1!: HTMLParagraphElement;
+let pRef2!: HTMLParagraphElement;
+
+let h2Ref1!: HTMLHeadingElement;
+let h2Ref2!: HTMLHeadingElement;
+
+export const slideX = (elem: gsap.TweenTarget, from: gsap.TweenVars = {}, props: gsap.TweenVars = {}, pos: gsap.Position = 0) => {
+    const timeline = gsap.timeline();
+    timeline.fromTo(
+        elem,
+        {
+            x: '200%',
+            ...from,
+        },
+        {
+            x: '0%',
+            ease: 'power3.out',
+            duration: 1.8,
+            stagger: 0.15,
+            ...props,
+        },
+        pos
+    );
+
+    return timeline;
+};
+
+let resizeFunc = () => (coolRef.width = window.innerWidth);
 export const About: Component<Props> = () => {
     onMount(() => {
         TagCanvas.Start('myCanvas', 'taglist', {
@@ -27,6 +58,31 @@ export const About: Component<Props> = () => {
             depth: 1.1,
         });
         window.addEventListener('resize', resizeFunc);
+        const what = new SplitTextJS(pRef1);
+        ScrollTrigger.create({
+            trigger: pRef1,
+            start: 'top bottom',
+            animation: slideUpOverflow(what.words, { opacity: 0 }, { opacity: 1, duration: 0.8, stagger: 0.025 }),
+            // scrub: true,
+        });
+        ScrollTrigger.create({
+            trigger: h2Ref1,
+            start: 'top bottom',
+            animation: slideX(h2Ref1, { x: '-200%' }),
+        });
+
+        const what2 = new SplitTextJS(pRef2);
+        ScrollTrigger.create({
+            trigger: pRef2,
+            start: 'top bottom',
+            animation: slideUpOverflow(what2.words, { opacity: 0 }, { opacity: 1, duration: 0.8, stagger: 0.025 }),
+            // scrub: true,
+        });
+        ScrollTrigger.create({
+            trigger: h2Ref2,
+            start: 'top bottom',
+            animation: slideX(h2Ref2),
+        });
     });
 
     onCleanup(() => {
@@ -35,24 +91,26 @@ export const About: Component<Props> = () => {
     });
     return (
         <>
-            <section class="bg-primary-black min-h-screen" style={{ height: 'fit-content' }}>
-                <div class="flex flex-col lg:flex-row gap-12 items-center justify-around mt-24 mx-auto max-w-[90vw] ">
-                    <div class="idkman lg:text-start text-center max-w-[65ch]">
-                        <h3 class="text-2xl  mb-8 font-bold">HI Im Aruldev</h3>
-                        <p class="text-start text-lg text-gray-300">
-                            I am a 17 year old high school student who has a strong passion for all things computers. From building and repairing
-                            hardware to coding and programming, I love learning about and exploring the endless possibilities that technology has to
-                            offer. In my free time, you can often find me tinkering with my own personal computer or working on a new project.
-                            <br /> <br /> I have explored a wide variety of interests and subjects over the years. This is because I am passionate
-                            about learning and growing as a person. In addition to increasing my knowledge and skills, I find that trying new things
-                            and exploring different areas of interest helps keep things interesting and engaging. It also helps me to avoid boredom or
-                            burnout, and keeps my mind active and curious. I have made a point of dipping my toes into a lot of different ponds, in
-                            order to keep learning and growing as a person.
-                        </p>
-                    </div>
-                    <div class="myCanvasContainer flex items-center justify-center">
-                        <canvas ref={coolRef} height={isMobile() ? 350 : 600} width={resizeFunc()} id="myCanvas"></canvas>
-                    </div>
+            <section id="about" class="bg-primary-black min-h-screen overflow-hidden" style={{ height: 'fit-content' }}>
+                <div class="part1 flex flex-col gap-32 items-center w-full max-w-[90vw] mx-auto my-48 relative">
+                    <h2 ref={h2Ref1} class="text-7xl self-start font-bold z-50">
+                        HI
+                    </h2>
+                    <p ref={pRef1} class="text-4xl lg:text-5xl max-w-[24ch] self-end">
+                        I am a 17 year old high school student who has a strong passion for all things computers.
+                    </p>
+                </div>
+                <div class="part1 flex flex-col gap-32 items-center w-full max-w-[90vw] mx-auto my-48">
+                    <h2 ref={h2Ref2} class="text-7xl self-end font-bold">
+                        Skills
+                    </h2>
+                    <p ref={pRef2} class="text-4xl lg:text-5xl max-w-[24ch] self-start">
+                        I love learning and personal growth, so I have tried many different interests and subjects. This helps me stay engaged, avoids
+                        boredom, and keeps my mind active. I try new things to continue learning and growing as a person.
+                    </p>
+                </div>
+                <div class="myCanvasContainer flex items-center justify-center">
+                    <canvas ref={coolRef} height={isMobile() ? 350 : 800} width={resizeFunc()} id="myCanvas"></canvas>
                 </div>
             </section>
             <div id="taglist" style={{ display: 'none' }}>

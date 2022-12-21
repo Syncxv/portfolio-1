@@ -1,11 +1,14 @@
 import { Component, createSignal, onCleanup, onMount } from 'solid-js';
 import gsap from 'gsap';
+import Arrow from '../Icons/Arrow';
+import { scroller } from '../Layout';
 type Props = {};
 
 const Hero: Component<Props> = (props) => {
     let firstRef: HTMLDivElement | undefined;
     let heading1: HTMLDivElement | undefined;
     let heading2: HTMLDivElement | undefined;
+    let btn!: HTMLButtonElement;
     let [timeLine, setTimeLine] = createSignal<gsap.core.Timeline>();
     onMount(async () => {
         console.log('CREATING TIMELINE');
@@ -53,6 +56,17 @@ const Hero: Component<Props> = (props) => {
             },
             0.2
         );
+        timeline.fromTo(
+            btn.firstChild,
+            { y: '200%' },
+            {
+                y: '0%',
+                ease: 'power3.out',
+                duration: 1.8,
+                stagger: 0.15,
+            },
+            0.3
+        );
     });
     onCleanup(() => timeLine()?.kill());
     return (
@@ -65,16 +79,23 @@ const Hero: Component<Props> = (props) => {
                         </p>
                     </div>
                     <div class="relative overflow-hidden">
-                        <h1 ref={heading1} class="text-4xl lg:text-8xl">
+                        <h1 ref={heading1} class="text-5xl mg:text-6xl lg:text-8xl">
                             Video Editor
                         </h1>
                     </div>
                     <div class="relative overflow-hidden">
-                        <h1 ref={heading2} class="text-4xl lg:text-8xl lg:ml-16 ">
+                        <h1 ref={heading2} class="text-5xl mg:text-6xl lg:text-8xl lg:ml-16 ">
                             & Developer
                         </h1>
                     </div>
                 </div>
+                <button
+                    ref={btn}
+                    onClick={() => scroller.scrollIntoView(document.getElementById('about')!)}
+                    class="absolute bottom-1/8 overflow-hidden"
+                >
+                    <Arrow style={{ transform: 'rotate(90deg)' }} />
+                </button>
             </section>
         </>
     );

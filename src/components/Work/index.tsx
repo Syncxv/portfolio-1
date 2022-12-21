@@ -4,14 +4,14 @@ import { WORKS } from '../../constants';
 import { slideUpOverflow } from '../../utils/slideUpOverflow';
 import WorkCard from './WorkCard';
 
-interface Props { }
+interface Props {}
 
-const WorkSection: Component<Props> = ({ }) => {
+const WorkSection: Component<Props> = ({}) => {
     let heading!: HTMLDivElement;
     onMount(async () => {
         ScrollTrigger.create({
             trigger: heading,
-            animation: slideUpOverflow(heading, { duration: 1.4, stagger: 0 }),
+            animation: slideUpOverflow(heading, {}, { duration: 1.4, stagger: 0 }),
             start: 'top bottom',
         });
     });
