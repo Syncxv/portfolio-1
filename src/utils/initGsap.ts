@@ -10,7 +10,7 @@ export const initGsap = (scrollerRef: HTMLDivElement) => {
     (window as any).ScrollTrigger = ScrollTrigger;
     if (!isMobile()) Scrollbar.use(SoftScrollPlugin);
     const scroller = ((window as any).scroller = Scrollbar.init(scrollerRef, {
-        continuousScrolling: false,
+        continuousScrolling: isMobile(),
         damping: 0.12,
         renderByPixels: true,
     }));

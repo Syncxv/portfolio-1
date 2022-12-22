@@ -105,8 +105,8 @@ export const About: Component<Props> = () => {
                         Skills
                     </h2>
                     <p ref={pRef2} class="text-4xl lg:text-5xl max-w-[24ch] self-start">
-                        I love learning and personal growth, so I have tried many different interests and subjects. This helps me stay engaged, avoids
-                        boredom, and keeps my mind active. I try new things to continue learning and growing as a person.
+                        G'day. I have a broad range of skills from video editing to low level assembly programming. I LOVE learning new technologies
+                        and building real world applications with them. OH and also i love reverse engineering.
                     </p>
                 </div>
                 <div class="myCanvasContainer flex items-center justify-center mb-32">

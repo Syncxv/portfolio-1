@@ -73,7 +73,7 @@ const Hero: Component<Props> = (props) => {
         <>
             <section id="home" class="flex justify-center relative bg-primary-black text-white z-20">
                 <div class="wrapper absolute top-1/3 lg:block flex flex-col items-center justify-center">
-                    <div class="self-start   lg:ml-0 relative overflow-hidden">
+                    <div class="self-start w-full lg:ml-0 relative overflow-hidden">
                         <p ref={firstRef} class="text-sm lg:text-lg">
                             Aruldev
                         </p>
