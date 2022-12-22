@@ -1,7 +1,7 @@
 import { Component, createSignal, onCleanup, onMount } from 'solid-js';
 import gsap from 'gsap';
 import Arrow from '../Icons/Arrow';
-import { scroller } from '../Layout';
+import { cursor, scroller } from '../Layout';
 type Props = {};
 
 const Hero: Component<Props> = (props) => {
@@ -91,6 +91,8 @@ const Hero: Component<Props> = (props) => {
                 </div>
                 <button
                     ref={btn}
+                    onMouseEnter={() => cursor?.addState('-exclusion -open')}
+                    onMouseLeave={() => cursor?.removeState('-exclusion -open')}
                     onClick={() => scroller.scrollIntoView(document.getElementById('about')!)}
                     class="absolute bottom-1/8 overflow-hidden"
                 >
