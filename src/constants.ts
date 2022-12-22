@@ -181,4 +181,6 @@ export const Skills = [
     { name: 'Deno' },
     { name: 'Bun' },
     { name: 'Redux' },
+    { name: 'Assembly x86/x64' },
+    { name: 'Webpack' },
 ];
