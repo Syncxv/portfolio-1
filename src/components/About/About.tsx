@@ -92,7 +92,7 @@ export const About: Component<Props> = () => {
     return (
         <>
             <section id="about" class="bg-primary-black min-h-screen overflow-hidden" style={{ height: 'fit-content' }}>
-                <div class="part1 flex flex-col gap-32 items-center w-full max-w-[90vw] mx-auto my-48 relative">
+                <div class="part1 flex flex-col gap-32 items-center w-full max-w-[90vw] mx-auto my-72 relative">
                     <h2 ref={h2Ref1} class="text-7xl self-start font-bold z-50">
                         HI
                     </h2>
@@ -100,7 +100,7 @@ export const About: Component<Props> = () => {
                         I am a 17 year old high school student who has a strong passion for all things computers.
                     </p>
                 </div>
-                <div class="part1 flex flex-col gap-32 items-center w-full max-w-[90vw] mx-auto my-48">
+                <div class="part2 flex flex-col gap-32 items-center w-full max-w-[90vw] mx-auto my-72">
                     <h2 ref={h2Ref2} class="text-7xl self-end font-bold">
                         Skills
                     </h2>
@@ -109,7 +109,7 @@ export const About: Component<Props> = () => {
                         boredom, and keeps my mind active. I try new things to continue learning and growing as a person.
                     </p>
                 </div>
-                <div class="myCanvasContainer flex items-center justify-center">
+                <div class="myCanvasContainer flex items-center justify-center mb-32">
                     <canvas ref={coolRef} height={isMobile() ? 350 : 800} width={resizeFunc()} id="myCanvas"></canvas>
                 </div>
             </section>
