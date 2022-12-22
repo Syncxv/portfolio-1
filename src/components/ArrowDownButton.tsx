@@ -11,7 +11,6 @@ interface Props {
 const ArrowDownButton: Component<Props> = ({ className = '', onClick = () => {} }) => {
     let btn!: HTMLButtonElement;
     onMount(() => {
-        console.log('WAHT', btn);
         const timeline = gsap.timeline();
         timeline.fromTo(
             btn.firstChild,
