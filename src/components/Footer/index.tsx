@@ -1,27 +1,15 @@
 import { createSignal, ParentComponent } from 'solid-js';
 import { cursor } from '../Layout';
-import { navRef } from '../NavBar';
 import ParallaxSection from '../ParallaxSection';
 import Styles from './Footer.module.scss';
 
 type Props = {};
 
 const Footer = (props: Props) => {
-    let [inversed, setInversed] = createSignal(false);
     return (
         <ParallaxSection
             onMouseOver={() => cursor?.inverse()}
             onMouseOut={() => cursor?.unInverse()}
-            onUpdate={(n) => {
-                if (n.progress > 0.96 && !inversed()) {
-                    navRef.classList.add('-inverse');
-                    setInversed(true);
-                }
-                if (n.progress < 0.96 && inversed()) {
-                    navRef.classList.remove('-inverse');
-                    setInversed(false);
-                }
-            }}
             id="contact"
             zIndex={0}
             className="bg-white text-black h-full"
