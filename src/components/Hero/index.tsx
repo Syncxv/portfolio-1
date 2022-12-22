@@ -2,6 +2,7 @@ import { Component, createSignal, onCleanup, onMount } from 'solid-js';
 import gsap from 'gsap';
 import Arrow from '../Icons/Arrow';
 import { cursor, scroller } from '../Layout';
+import ArrowDownButton from '../ArrowDownButton';
 type Props = {};
 
 const Hero: Component<Props> = (props) => {
@@ -56,50 +57,29 @@ const Hero: Component<Props> = (props) => {
             },
             0.2
         );
-        timeline.fromTo(
-            btn.firstChild,
-            { y: '200%' },
-            {
-                y: '0%',
-                ease: 'power3.out',
-                duration: 1.8,
-                stagger: 0.15,
-            },
-            0.3
-        );
     });
     onCleanup(() => timeLine()?.kill());
     return (
-        <>
-            <section id="home" class="flex justify-center relative bg-primary-black text-white z-20">
-                <div class="wrapper absolute top-1/3 lg:block flex flex-col items-center justify-center">
-                    <div class="self-start w-full lg:ml-0 relative overflow-hidden">
-                        <p ref={firstRef} class="text-sm lg:text-lg">
-                            Aruldev
-                        </p>
-                    </div>
-                    <div class="relative overflow-hidden">
-                        <h1 ref={heading1} class="text-5xl mg:text-6xl lg:text-8xl">
-                            Video Editor
-                        </h1>
-                    </div>
-                    <div class="relative overflow-hidden">
-                        <h1 ref={heading2} class="text-5xl mg:text-6xl lg:text-8xl lg:ml-16 ">
-                            & Developer
-                        </h1>
-                    </div>
+        <section id="home" class="flex justify-center relative bg-primary-black text-white z-20">
+            <div class="wrapper absolute top-1/3 lg:block flex flex-col items-center justify-center">
+                <div class="self-start w-full lg:ml-0 relative overflow-hidden">
+                    <p ref={firstRef} class="text-sm lg:text-lg">
+                        Aruldev
+                    </p>
                 </div>
-                <button
-                    ref={btn}
-                    onMouseEnter={() => cursor?.addState('-exclusion -open')}
-                    onMouseLeave={() => cursor?.removeState('-exclusion -open')}
-                    onClick={() => scroller.scrollIntoView(document.getElementById('about')!)}
-                    class="absolute bottom-1/8 overflow-hidden"
-                >
-                    <Arrow style={{ transform: 'rotate(90deg)' }} />
-                </button>
-            </section>
-        </>
+                <div class="relative overflow-hidden">
+                    <h1 ref={heading1} class="text-5xl mg:text-6xl lg:text-8xl">
+                        Video Editor
+                    </h1>
+                </div>
+                <div class="relative overflow-hidden">
+                    <h1 ref={heading2} class="text-5xl mg:text-6xl lg:text-8xl lg:ml-16 ">
+                        & Developer
+                    </h1>
+                </div>
+            </div>
+            <ArrowDownButton onClick={() => scroller.scrollIntoView(document.getElementById('part1')!)} />
+        </section>
     );
 };
 

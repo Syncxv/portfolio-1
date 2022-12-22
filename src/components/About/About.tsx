@@ -6,6 +6,8 @@ import { clamp } from '../../utils/clamp';
 import { isMobile } from '../../utils/isMobile';
 import { slideUpOverflow } from '../../utils/slideUpOverflow';
 import { SplitTextJS } from '../../utils/SplitTextJs';
+import ArrowDownButton from '../ArrowDownButton';
+import { scroller } from '../Layout';
 interface Props {}
 let coolRef!: HTMLCanvasElement;
 
@@ -92,15 +94,20 @@ export const About: Component<Props> = () => {
     return (
         <>
             <section id="about" class="bg-primary-black min-h-screen overflow-hidden" style={{ height: 'fit-content' }}>
-                <div class="part1 flex flex-col gap-32 items-center w-full max-w-[90vw] mx-auto my-72 relative">
+                <div id="part1" class="part1 flex flex-col gap-32 items-center w-full max-w-[90vw] mx-auto pt-24 my-[70vh] relative">
                     <h2 ref={h2Ref1} class="text-7xl self-start font-bold z-50">
                         HI
                     </h2>
                     <p ref={pRef1} class="text-4xl lg:text-5xl max-w-[24ch] self-end">
                         I am a 17 year old high school student who has a strong passion for all things computers.
                     </p>
+                    <ArrowDownButton
+                        className="-bottom-1/4 lg:-bottom-1/2"
+                        onClick={() => scroller.scrollIntoView(document.getElementById('part2')!)}
+                    />
                 </div>
-                <div class="part2 flex flex-col gap-32 items-center w-full max-w-[90vw] mx-auto my-72">
+
+                <div id="part2" class="part2 flex flex-col gap-32 items-center w-full max-w-[90vw] mx-auto my-72 pt-24">
                     <h2 ref={h2Ref2} class="text-7xl self-end font-bold">
                         Skills
                     </h2>
