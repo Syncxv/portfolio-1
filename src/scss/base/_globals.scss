@@ -61,10 +61,6 @@ section {
     object-fit: none;
 }
 
-.hiden {
-    opaciy: 0;
-}
-
 @media screen and (min-width: 3840px) {
     //For 4K Displays (Ultra HD)
     .hey {
@@ -73,7 +69,14 @@ section {
 }
 
 ::selection {
-    color: white;
+    color: black;
     font-weight: 900;
-    background: black;
+    background-color: white;
+}
+
+#contact {
+    ::selection {
+        color: white;
+        background-color: black;
+    }
 }
