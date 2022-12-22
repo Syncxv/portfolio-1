@@ -47,7 +47,11 @@ const NavBar: Component<Props> = ({ className = ' ' }) => {
                 </button>
             </div>
 
-            <ul class="flex items-center justify-center gap-4 pointer-events-auto">
+            <ul
+                onMouseEnter={() => cursor?.addState('-exclusion -open')}
+                onMouseLeave={() => cursor?.removeState('-exclusion -open')}
+                class="flex items-center justify-center gap-4 pointer-events-auto"
+            >
                 <NavLink type="id" elemId="work">
                     Work
                 </NavLink>
@@ -82,8 +86,6 @@ const NavLink: ParentComponent<NavLinkProps> = ({ children, ...props }) => {
     if (isNavId(props)) {
         return (
             <button
-                onMouseEnter={() => cursor?.addState('-exclusion -open')}
-                onMouseLeave={() => cursor?.removeState('-exclusion -open')}
                 onClick={() =>
                     location.pathname === '/'
                         ? scroller.scrollIntoView(document.getElementById(props.elemId)!)
