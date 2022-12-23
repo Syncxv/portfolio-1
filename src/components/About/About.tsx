@@ -102,7 +102,7 @@ export const About: Component<Props> = () => {
                         I am a 17 year old high school student who has a strong passion for all things computers.
                     </p>
                     <ArrowDownButton
-                        className="-bottom-1/4 lg:-bottom-1/2"
+                        className="!-bottom-1/4 lg:-bottom-1/2"
                         onClick={() => scroller.scrollIntoView(document.getElementById('part2')!)}
                     />
                 </div>
