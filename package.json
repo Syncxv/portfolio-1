@@ -9,6 +9,7 @@
     },
     "license": "MIT",
     "devDependencies": {
+        "@types/three": "^0.146.0",
         "sass": "^1.56.1",
         "typescript": "^4.8.2",
         "vite": "^3.0.9",
@@ -18,9 +19,12 @@
     },
     "dependencies": {
         "@solidjs/router": "^0.5.1",
+        "@tweenjs/tween.js": "^18.6.4",
+        "glslify": "github:glslify/glslify#a3e46d8",
         "gsap": "^3.11.3",
         "smooth-scrollbar": "^8.8.1",
         "solid-js": "^1.5.3",
-        "solid-transition-group": "^0.0.12"
+        "solid-transition-group": "^0.0.12",
+        "three": "^0.148.0"
     }
 }
