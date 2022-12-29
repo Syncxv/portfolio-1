@@ -222,7 +222,7 @@ export const CircleBlob: Component<Props> = () => {
     return (
         <div
             ref={container}
-            style={{ width: '20rem', transform: 'translate(-50%, -50%)' }}
+            style={{ width: '50rem', transform: 'translate(-50%, -50%)' }}
             class="canvas-container absolute  pointer-events-none h-[50vh] left-0 top-1/3 z-50 lg:block flex flex-col items-center justify-cente mix-blend-exclusion"
         ></div>
     );
