@@ -62,12 +62,14 @@ const Hero: Component<Props> = (props) => {
     onCleanup(() => timeLine()?.kill());
     return (
         <section id="home" class="flex justify-center relative bg-primary-black text-white z-20">
-            <CircleBlob />
-            <div class="wrapper absolute top-1/3 lg:block flex flex-col items-center justify-center">
-                <div class="self-start w-full lg:ml-0 relative overflow-hidden">
-                    <p ref={firstRef} class="text-sm lg:text-lg">
-                        Aruldev
-                    </p>
+            <div class="wrapper absolute top-1/3 lg:block flex flex-col items-center justify-center mix-blend-difference">
+                <div class="relative self-start">
+                    <CircleBlob />
+                    <div class="self-start w-full lg:ml-0 relative overflow-hidden">
+                        <p ref={firstRef} class="text-sm lg:text-lg">
+                            Aruldev
+                        </p>
+                    </div>
                 </div>
                 <div class="relative overflow-hidden">
                     <h1 ref={heading1} class="text-5xl mg:text-6xl lg:text-8xl">
