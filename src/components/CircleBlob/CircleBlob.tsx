@@ -3,12 +3,10 @@ import { Component, onCleanup, onMount } from 'solid-js';
 import * as THREE from 'three';
 import * as TWEEN from '@tweenjs/tween.js';
 
-import { Vector2 } from 'three';
 import glsl from 'glslify';
 
 let container: HTMLDivElement;
 
-export const mouse = new Vector2();
 export const clock = new THREE.Clock();
 export const scene = new THREE.Scene();
 export const camera = new THREE.PerspectiveCamera(36, window.innerWidth / window.innerHeight, 0.01, 100);
@@ -24,11 +22,6 @@ function onWindowResize() {
     camera.updateProjectionMatrix();
 
     renderer.setSize(container.getBoundingClientRect().width, container.getBoundingClientRect().height);
-}
-
-function onDocumentMouseMove(event: MouseEvent) {
-    mouse.x = event.x;
-    mouse.y = event.y;
 }
 
 interface Props {}
@@ -52,13 +45,10 @@ export const CircleBlob: Component<Props> = () => {
 
         window.addEventListener('resize', onWindowResize, false);
 
-        document.addEventListener('mousemove', onDocumentMouseMove, false);
-
         const geometry = new THREE.CircleGeometry(0.1, 100, 100);
         const material = new THREE.ShaderMaterial({
             // wireframe: true,
             uniforms: {
-                u_mouse: { value: mouse },
                 time: { value: 1.0 },
             },
 
@@ -169,13 +159,12 @@ export const CircleBlob: Component<Props> = () => {
           
           
         
-                uniform vec2 u_mouse;
                 uniform float time;
                 void main() { 
                     vec3 pos = position;
                     float noiseFreq = 2.5;
                     float noiseAmp = 0.25;
-                    vec3 noisePos = vec3(pos.x * noiseFreq + (time / 2.0) + u_mouse.x / 5000.0, pos.y, pos.z);
+                    vec3 noisePos = vec3(pos.x * noiseFreq + (time / 2.0), pos.y, pos.z);
                     
                     pos.z += snoise(noisePos) * noiseAmp;
         
@@ -217,7 +206,6 @@ export const CircleBlob: Component<Props> = () => {
     onCleanup(() => {
         container.style.mixBlendMode = 'none';
         window.removeEventListener('resize', onWindowResize);
-        document.removeEventListener('mousemove', onDocumentMouseMove);
     });
     return (
         <div
